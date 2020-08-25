@@ -22,18 +22,18 @@
     CustomElement.init((element, context) => {
       CKEDITOR.plugins.addExternal(
         "kontentimage",
-        "/plugins/kontentimage/",
+        "/ckeditor/plugins/kontentimage/",
         "plugin.js"
       );
       CKEDITOR.plugins.addExternal(
         "kontentlink",
-        "/plugins/kontentlink/",
+        "/ckeditor/plugins/kontentlink/",
         "plugin.js"
       );
 
       let config = {
         skin: "moono-lisa",
-        customConfig: "/config.js",
+        customConfig: "/ckeditor/config.js",
         extraPlugins: "autogrow,sourcedialog,kontentimage,kontentlink",
         removePlugins: "sourcearea,resize,image,elementspath,link",
         allowedContent: true,

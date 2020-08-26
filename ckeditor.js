@@ -137,6 +137,6 @@ function updateElementHeight() {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
-	initializeCKEditor(document.getElementById('editor'), '');
-});
+// document.addEventListener('DOMContentLoaded', () => {
+// 	initializeCKEditor(document.getElementById('editor'), '');
+// });

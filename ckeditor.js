@@ -6,7 +6,7 @@ CustomElement.init((element, context) => {
   initializeCKEditor(element);
 });
 
-function initializeCKEditor(element, basePath = '/ckeditor') {
+function initializeCKEditor(element, basePath = '/kontent-custom-element-ckeditor') {
 	const additionalPlugins = [
 		'kontentimage',
 		'kontentlink',

@@ -25,19 +25,19 @@
 	    	upcast: function( element ) {
 					return element.name == 'div' && element.hasClass( 'kontentfacebook' );
 		    },
-		   //  init() {
-		   //  	const iframe = this.element.$.querySelector('iframe');
-		   //  	const youtubeID = window.utilities.extractYoutubeId(iframe.dataset.src);
+		    init() {
+		    	const iframe = this.element.$.querySelector('iframe');
+		    	const videoURL = window.utilities.extractFacebookVideoURL(iframe.dataset.src);
 
-					// this.setData('url', iframe.dataset.src);
-					// this.setData('youtubeID', youtubeID);
-		   //  },
-		   //  data() {
-		   //  	const iframe = this.element.$.querySelector('iframe');
+					this.setData('url', iframe.dataset.videoURL);
+					this.setData('videoURL', videoURL);
+		    },
+		    data() {
+		    	const iframe = this.element.$.querySelector('iframe');
 
-		   //  	iframe.dataset.src = this.data.url;
-		   //  	iframe.src = `https://www.youtube.com/embed/${this.data.youtubeID}`;
-		   //  }
+		    	iframe.dataset.src = this.data.url;
+		    	iframe.src = `https://www.facebook.com/plugins/video.php?href=${this.data.videoURL}&show_text=0&width=560`;
+		    }
 	    });
 
 	    // Add toolbar button for this plugin.

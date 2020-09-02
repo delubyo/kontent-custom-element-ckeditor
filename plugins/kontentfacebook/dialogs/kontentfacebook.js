@@ -12,14 +12,11 @@ CKEDITOR.dialog.add( 'kontentfacebook', function( editor ) {
                         type: 'text',
                         label: 'Facebook URL',
                         setup: function( widget ) {
-                            this.setValue(widget.data.url);
+                            this.setValue(widget.data.videoURL);
                         },
                         commit: function( widget ) {
-                        	const url = this.getValue();
-                        	const youtubeID = window.utilities.extractYoutubeId(url);
-
-                          widget.setData( 'url', url );
-                          widget.setData( 'youtubeID', youtubeID );
+                          const url = this.getValue();
+                          widget.setData( 'videoURL', url );
                         }
                     },
                 ]

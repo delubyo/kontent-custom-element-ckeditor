@@ -26,16 +26,17 @@
 			`;
 		},
 
-		facebook(shortcode, postID) {
-			const embedURL = shortcode ? `https://www.facebook.com/videos/${postID}` : '';
+		facebook(shortcode, videoID) {
+			const embedURL =  `https://www.facebook.com/facebook/videos/${videoID}`;
+			const srcURL = `https://www.facebook.com/plugins/video.php?href=${embedURL}&show_text=0&width=560`;
 
 			return `
 			<div class="kontentfacebook">
-				<div class="fb-video" ${embedURL ? `data-href="${embedURL}"` : ''} data-show-text="true" data-width=""></div>
+				<iframe data-src="${srcURL}" src="${srcURL}" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
 			</div>
 			`;
 		},
-		
+
 	};
 
 	window.CKEditorShortCode = window.CKEditorShortCode || {
@@ -43,8 +44,8 @@
 		/**
 		 * Accepts HTML string containing shortcodes,
 		 * and formats them accordingly
-		 * @param  {string} htmlWithShortcodes 
-		 * @return {string}                    
+		 * @param  {string} htmlWithShortcodes
+		 * @return {string}
 		 */
 		formatHTML(htmlWithShortcodes = '') {
 			return htmlWithShortcodes.replace(shortCodesPattern, this.toMarkup);

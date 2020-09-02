@@ -1,7 +1,9 @@
 (() => {
-	const shortCodesPattern = new RegExp([
-		'(?:\\[\(youtube\)\\s+id="\(\[^"\]+\)"\\])'
-	].join('|'), 'ig');
+	const shortCodesPattern = new RegExp(
+		'\\[\(vimeo|youtube|facebook\)\\s+id="\(\[^"\]+\)".*\\]'
+	, 'ig');
+
+	console.log({ shortCodesPattern });
 
 	const SHORTCODE_TO_HTML = {
 		youtube(shortcode, youtubeID) {
@@ -12,7 +14,28 @@
 				<iframe ${youtubeURL ? `src="${youtubeURL}"` : ''} data-src=${youtubeURL} frameborder="0"></iframe>
 			</div>
 			`;
-		}
+		},
+
+		vimeo(shortcode, vimeoID) {
+			const vimeoURL = shortcode ? `https://player.vimeo.com/video/${vimeoID}` : '';
+
+			return `
+			<div class="kontentvimeo">
+				<iframe ${vimeoURL ? `src="${vimeoURL}"` : ''} data-src=${vimeoURL} frameborder="0"></iframe>
+			</div>
+			`;
+		},
+
+		facebook(shortcode, postID) {
+			const embedURL = shortcode ? `https://www.facebook.com/videos/${postID}` : '';
+
+			return `
+			<div class="kontentfacebook">
+				<div class="fb-video" ${embedURL ? `data-href="${embedURL}"` : ''} data-show-text="true" data-width=""></div>
+			</div>
+			`;
+		},
+		
 	};
 
 	window.CKEditorShortCode = window.CKEditorShortCode || {
@@ -28,6 +51,7 @@
 		},
 
 		toMarkup(shortcode, shortcodeType, ...captureGroups) {
+			console.log({ shortcode, shortcodeType, captureGroups });
 			if ( shortcodeType in SHORTCODE_TO_HTML ) {
 				return SHORTCODE_TO_HTML[shortcodeType](shortcode, ...captureGroups.slice(0, -2));
 			}

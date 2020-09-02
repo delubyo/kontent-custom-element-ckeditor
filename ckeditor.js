@@ -11,7 +11,9 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
 		'kontentimage',
 		'kontentlink',
 		// 'kontentshortcode',
-		'kontentyoutube'
+		'kontentyoutube',
+		'kontentvimeo',
+		'kontentfacebook',
 	];
 
 	additionalPlugins.forEach(pluginName => {
@@ -137,6 +139,6 @@ function updateElementHeight() {
 }
 
 
-// document.addEventListener('DOMContentLoaded', () => {
-// 	initializeCKEditor(document.getElementById('editor'), '');
-// });
+document.addEventListener('DOMContentLoaded', () => {
+	initializeCKEditor(document.getElementById('editor'), '');
+});

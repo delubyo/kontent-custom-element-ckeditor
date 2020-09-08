@@ -11,11 +11,14 @@
 	CKEDITOR.plugins.add(pluginName, {
 		requires: 'widget,dialog',
 
-    icons: 'image',
+    // icons: 'vimeo',
 
     init: function( editor ) {
     	// Add dialog
 			CKEDITOR.dialog.add( pluginName, this.path + 'dialogs/'+ pluginName +'.js' );
+
+			// Add command
+			editor.addCommand( 'insertVimeoVideo', new CKEDITOR.dialogCommand( 'kontentvimeo' ));
 
       editor.widgets.add( pluginName, {
       	button: pluginName,
@@ -25,27 +28,28 @@
 	    	upcast: function( element ) {
 					return element.name == 'div' && element.hasClass( pluginName );
 		    },
-		   //  init() {
-		   //  	const iframe = this.element.$.querySelector('iframe');
-		   //  	const youtubeID = window.utilities.extractYoutubeId(iframe.dataset.src);
+		    init() {
+		    	const iframe = this.element.$.querySelector('iframe');
+		    	const vimeoID = window.utilities.extractVimeoId(iframe.dataset.src);
 
-					// this.setData('url', iframe.dataset.src);
-					// this.setData('youtubeID', youtubeID);
-		   //  },
-		   //  data() {
-		   //  	const iframe = this.element.$.querySelector('iframe');
+					this.setData('url', iframe.dataset.src);
+					this.setData('vimeoID', vimeoID);
+		    },
+		    data() {
+		    	const iframe = this.element.$.querySelector('iframe');
 
-		   //  	iframe.dataset.src = this.data.url;
-		   //  	iframe.src = `https://www.youtube.com/embed/${this.data.youtubeID}`;
-		   //  }
+		    	iframe.dataset.src = this.data.url;
+		    	iframe.src = `https://player.vimeo.com/video/${this.data.vimeoID}`;
+		    }
 	    });
 
 	    // Add toolbar button for this plugin.
-			// editor.ui.addButton && editor.ui.addButton( 'Youtube', {
-			// 	label: 'Youtube',
-			// 	command: pluginName,
-			// 	toolbar: 'insert,10'
-			// });
+			editor.ui.addButton && editor.ui.addButton( 'Vimeo', {
+				label: 'Youtube',
+				command: 'insertVimeoVideo',
+				// toolbar: 'kentico_toolbar',
+				icon: this.path + 'icons/vimeo.png'
+			});
     }
 	});
 })();

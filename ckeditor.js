@@ -46,6 +46,12 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     item_url_macro = element.config.itemUrlMacro; // load url macro for item hyperlinks
   }
 
+  // config.toolbarGroups = config.toolbarGroups || [];
+  // config.toolbarGroups.push({
+  //   name: 'kentico_toolbar',
+  //   groups: [ 'document' ]
+  // });
+
   let ckeditor = CKEDITOR.replace("editor", config);
 
   /* what to do on autogrow */

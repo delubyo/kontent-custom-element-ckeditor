@@ -11,11 +11,14 @@
 	CKEDITOR.plugins.add('kontentfacebook', {
 		requires: 'widget,dialog',
 
-    icons: 'image',
+    // icons: 'facebook',
 
     init: function( editor ) {
     	// Add dialog
 			CKEDITOR.dialog.add( 'kontentfacebook', this.path + 'dialogs/kontentfacebook.js' );
+
+			// Add commad
+			editor.addCommand( 'insertFBVideo', new CKEDITOR.dialogCommand( 'kontentfacebook' ));
 
       editor.widgets.add( 'kontentfacebook', {
       	button: 'kontentfacebook',
@@ -41,11 +44,12 @@
 	    });
 
 	    // Add toolbar button for this plugin.
-			// editor.ui.addButton && editor.ui.addButton( 'Youtube', {
-			// 	label: 'Youtube',
-			// 	command: pluginName,
-			// 	toolbar: 'insert,10'
-			// });
+			editor.ui.addButton && editor.ui.addButton( 'Facebook Video', {
+				label: 'Youtube',
+				command: 'insertFBVideo',
+				// toolbar: 'kentico_toolbar',
+				icon: this.path + 'icons/facebook.png'
+			});
     }
 	});
 })();

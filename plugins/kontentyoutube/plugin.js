@@ -11,11 +11,15 @@
 	CKEDITOR.plugins.add('kontentyoutube', {
 		requires: 'widget,dialog',
 
-    icons: 'image',
+    // icons: 'youtube',
 
     init: function( editor ) {
     	// Add dialog
 			CKEDITOR.dialog.add( 'kontentyoutube', this.path + 'dialogs/kontentyoutube.js' );
+
+			// Add command
+			editor.addCommand( 'insertYoutubeVideo', new CKEDITOR.dialogCommand( 'kontentyoutube' ));
+
 
       editor.widgets.add( 'kontentyoutube', {
       	button: 'kontentyoutube',
@@ -25,27 +29,28 @@
 	    	upcast: function( element ) {
 					return element.name == 'div' && element.hasClass( 'kontentyoutube' );
 		    },
-		   //  init() {
-		   //  	const iframe = this.element.$.querySelector('iframe');
-		   //  	const youtubeID = window.utilities.extractYoutubeId(iframe.dataset.src);
+		    init() {
+		    	const iframe = this.element.$.querySelector('iframe');
+		    	const youtubeID = window.utilities.extractYoutubeId(iframe.dataset.src);
 
-					// this.setData('url', iframe.dataset.src);
-					// this.setData('youtubeID', youtubeID);
-		   //  },
-		   //  data() {
-		   //  	const iframe = this.element.$.querySelector('iframe');
+					this.setData('url', iframe.dataset.src);
+					this.setData('youtubeID', youtubeID);
+		    },
+		    data() {
+		    	const iframe = this.element.$.querySelector('iframe');
 
-		   //  	iframe.dataset.src = this.data.url;
-		   //  	iframe.src = `https://www.youtube.com/embed/${this.data.youtubeID}`;
-		   //  }
+		    	iframe.dataset.src = this.data.url;
+		    	iframe.src = `https://www.youtube.com/embed/${this.data.youtubeID}`;
+		    }
 	    });
 
 	    // Add toolbar button for this plugin.
-			// editor.ui.addButton && editor.ui.addButton( 'Youtube', {
-			// 	label: 'Youtube',
-			// 	command: pluginName,
-			// 	toolbar: 'insert,10'
-			// });
+			editor.ui.addButton && editor.ui.addButton( 'Youtube', {
+				label: 'Youtube',
+				command: 'insertYoutubeVideo',
+				// toolbar: 'kentico_toolbar',
+				icon: this.path + 'icons/youtube.png'
+			});
     }
 	});
 })();

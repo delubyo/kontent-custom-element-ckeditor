@@ -7,7 +7,7 @@
 
 	const SHORTCODE_TO_HTML = {
 		youtube(shortcode, youtubeID) {
-			const youtubeURL = shortcode ? `https://www.youtube.com/embed/${youtubeID}` : '';
+			const youtubeURL = youtubeID ? window.utilities.buildYoutubeURL(youtubeID) : '';
 
 			return `
 			<div class="kontentyoutube">
@@ -17,7 +17,7 @@
 		},
 
 		vimeo(shortcode, vimeoID) {
-			const vimeoURL = shortcode ? `https://player.vimeo.com/video/${vimeoID}` : '';
+			const vimeoURL = shortcode ? window.utilities.buildVimeoURL(vimeoID) : '';
 
 			return `
 			<div class="kontentvimeo">
@@ -28,7 +28,7 @@
 
 		facebook(shortcode, videoID) {
 			const embedURL =  `https://www.facebook.com/facebook/videos/${videoID}`;
-			const srcURL = `https://www.facebook.com/plugins/video.php?href=${embedURL}&show_text=0&width=560`;
+			const srcURL = window.utilities.buildFacebookURL(embedURL);
 
 			return `
 			<div class="kontentfacebook">

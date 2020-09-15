@@ -14,6 +14,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
 		'kontentyoutube',
 		'kontentvimeo',
 		'kontentfacebook',
+    'kontentcolumns',
 	];
 
 	additionalPlugins.forEach(pluginName => {

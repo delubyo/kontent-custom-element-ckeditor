@@ -44,8 +44,12 @@ CKEDITOR.dialog.add( 'kontentvimeo', function( editor ) {
             }
 
             if ( !element || element.getName() != 'div' ) {
-                element = editor.document.createElement( 'div' );
-                element.$.innerHTML = CKEditorShortCode.getTemplate('vimeo');
+                const markup = CKEditorShortCode.getTemplate('vimeo');
+                const div = editor.document.createElement('div');
+
+                div.setHtml(markup);
+
+                element = div;
                 this.insertMode = true;
             }
             else
@@ -54,8 +58,6 @@ CKEDITOR.dialog.add( 'kontentvimeo', function( editor ) {
             this.element = element;
 
 
-            console.log('this.insertMode',this.insertMode);
-
             if ( !this.insertMode )
                 this.setupContent( this.element );
         },
@@ -63,12 +65,10 @@ CKEDITOR.dialog.add( 'kontentvimeo', function( editor ) {
             const dialog = this;
             const element = this.element;
 
-            console.log({ element });
-
             dialog.commitContent( element );
 
             if ( dialog.insertMode ) {
-                editor.insertElement( element );
+                editor.insertHtml( element.$.innerHTML.trim() );
             }
         }
     };

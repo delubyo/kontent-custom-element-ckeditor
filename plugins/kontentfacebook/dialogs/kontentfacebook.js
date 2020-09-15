@@ -42,8 +42,12 @@ CKEDITOR.dialog.add( 'kontentfacebook', function( editor ) {
             }
 
             if ( !element || element.getName() != 'div' ) {
-                element = editor.document.createElement( 'div' );
-                element.$.innerHTML = CKEditorShortCode.getTemplate('facebook');
+                const markup = CKEditorShortCode.getTemplate('facebook');
+                const div = editor.document.createElement('div');
+
+                div.setHtml(markup);
+
+                element = div;
                 this.insertMode = true;
             }
             else
@@ -58,12 +62,10 @@ CKEDITOR.dialog.add( 'kontentfacebook', function( editor ) {
             const dialog = this;
             const element = this.element;
 
-            console.log({ element });
-
             dialog.commitContent( element );
 
             if ( dialog.insertMode ) {
-                editor.insertElement( element );
+                editor.insertHtml( element.$.innerHTML.trim() );
             }
         }
     };

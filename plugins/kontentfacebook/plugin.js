@@ -8,6 +8,8 @@
 (function () {
 	const pluginName = 'kontentfacebook';
 
+	const template = CKEditorShortCode.getTemplate('facebook');
+
 	CKEDITOR.plugins.add('kontentfacebook', {
 		requires: 'widget,dialog',
 
@@ -22,7 +24,7 @@
 
       editor.widgets.add( 'kontentfacebook', {
       	button: 'kontentfacebook',
-	      template: CKEditorShortCode.getTemplate('facebook'),
+	      template: template,
 	      // template: "Test",
 	    	dialog: 'kontentfacebook',
 	    	upcast: function( element ) {

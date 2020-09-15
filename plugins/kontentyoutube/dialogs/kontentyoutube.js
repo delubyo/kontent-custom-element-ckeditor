@@ -15,6 +15,7 @@ CKEDITOR.dialog.add( 'kontentyoutube', function( editor ) {
                             this.setValue(widget.data.url);
                         },
                         commit: function( elementOrWidget ) {
+                            console.log({ elementOrWidget });
                             const element = elementOrWidget.$ ? elementOrWidget.$ : elementOrWidget.element.$;
                             const url = this.getValue();
                             const youtubeID = window.utilities.extractYoutubeId(url);
@@ -28,6 +29,7 @@ CKEDITOR.dialog.add( 'kontentyoutube', function( editor ) {
 
                             iframe.src = youtubeURL;
                             iframe.dataset.src = youtubeURL;
+                            console.log('iframe.dataset.src',iframe.dataset.src);
                         }
                     },
                 ]
@@ -39,21 +41,25 @@ CKEDITOR.dialog.add( 'kontentyoutube', function( editor ) {
            let element = selection.getStartElement();
 
             if ( element ) {
+                console.log('existing element', { element });
                 element = element.getAscendant( 'div', true );
             }
 
             if ( !element || element.getName() != 'div' ) {
-                element = editor.document.createElement( 'div' );
-                element.$.innerHTML = CKEditorShortCode.getTemplate('youtube');
+                const markup = CKEditorShortCode.getTemplate('youtube');
+                const div = editor.document.createElement('div');
+
+                div.setHtml(markup);
+
+                element = div;
                 this.insertMode = true;
+
             }
-            else
+            else {
                 this.insertMode = false;
+            }
 
             this.element = element;
-
-
-            console.log('this.insertMode',this.insertMode);
 
             if ( !this.insertMode )
                 this.setupContent( this.element );
@@ -62,12 +68,10 @@ CKEDITOR.dialog.add( 'kontentyoutube', function( editor ) {
             const dialog = this;
             const element = this.element;
 
-            console.log({ element });
-
             dialog.commitContent( element );
 
             if ( dialog.insertMode ) {
-                editor.insertElement( element );
+                editor.insertHtml( element.$.innerHTML.trim() );
             }
         }
     };

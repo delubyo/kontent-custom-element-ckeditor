@@ -8,6 +8,8 @@
 (function () {
 	const pluginName = 'kontentyoutube';
 
+	const template = CKEditorShortCode.getTemplate('youtube');
+
 	CKEDITOR.plugins.add('kontentyoutube', {
 		requires: 'widget,dialog',
 
@@ -19,13 +21,20 @@
 
 			// Add command
 			editor.addCommand( 'insertYoutubeVideo', new CKEDITOR.dialogCommand( 'kontentyoutube' ));
+			// editor.addCommand( 'insertYoutubeVideo', {
+			// 	exec(editor) {
+   //        editor.insertHtml( template );
+			// 	}
+			// });
 
 
       editor.widgets.add( 'kontentyoutube', {
       	button: 'kontentyoutube',
-	      template: CKEditorShortCode.getTemplate('youtube'),
+	      template,
 	      // template: "Test",
 	    	dialog: 'kontentyoutube',
+	    	allowedContent: `div(!kontentyoutube)`,
+	    	requiredContent: 'div(kontentyoutube)',
 	    	upcast: function( element ) {
 					return element.name == 'div' && element.hasClass( 'kontentyoutube' );
 		    },
@@ -35,6 +44,9 @@
 
 					this.setData('url', iframe.dataset.src);
 					this.setData('youtubeID', youtubeID);
+		    },
+		    upcast(element) {
+		    	return element.hasClass('kontentyoutube');
 		    },
 		    data() {
 		    	const iframe = this.element.$.querySelector('iframe');

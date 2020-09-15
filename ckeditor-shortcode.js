@@ -10,7 +10,7 @@
 			const youtubeURL = youtubeID ? window.utilities.buildYoutubeURL(youtubeID) : '';
 
 			return `
-			<div class="kontentyoutube">
+			<div class="kontentyoutube embed embed--youtube">
 				<iframe ${youtubeURL ? `src="${youtubeURL}"` : ''} data-src=${youtubeURL} frameborder="0"></iframe>
 			</div>
 			`;
@@ -20,7 +20,7 @@
 			const vimeoURL = shortcode ? window.utilities.buildVimeoURL(vimeoID) : '';
 
 			return `
-			<div class="kontentvimeo">
+			<div class="kontentvimeo embed embed--vimeo">
 				<iframe ${vimeoURL ? `src="${vimeoURL}"` : ''} data-src=${vimeoURL} frameborder="0"></iframe>
 			</div>
 			`;
@@ -31,7 +31,7 @@
 			const srcURL = window.utilities.buildFacebookURL(embedURL);
 
 			return `
-			<div class="kontentfacebook">
+			<div class="kontentfacebook embed embed--youtube">
 				<iframe data-src="${srcURL}" src="${srcURL}" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
 			</div>
 			`;

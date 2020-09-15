@@ -2422,3 +2422,20 @@ input:checked:disabled+.switch:before{
 input:checked~.switch__label{
   color:#2196f3;
 }
+
+.kontentcolumns {
+      display: flex;
+  justify-content: space-between;
+}
+
+.kontentcolumns > * {
+  width: calc(50% - 10px);
+}
+
+.embed {
+  display: block;
+}
+
+.embed iframe {
+  border: none !important;
+}

@@ -17,6 +17,30 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     'kontentcolumns',
 	];
 
+
+  CKEDITOR.addCss(`
+    .kontentcolumns {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .kontentcolumns > * {
+      width: calc(50% - 10px);
+    }
+
+    .embed {
+      display: block;
+    }
+
+    .embed iframe {
+      border: none !important;
+      display: block;
+      margin: auto;
+      width: 500px;
+      height: 300px;
+    }
+  `);
+
 	additionalPlugins.forEach(pluginName => {
 		CKEDITOR.plugins.addExternal(
 	    pluginName,

@@ -15,17 +15,6 @@
 		</div>
 	`;
 
-	CKEDITOR.addCss(`
-		.kontentcolumns {
-			display: flex;
-			justify-content: space-between;
-		}
-
-		.kontentcolumns > * {
-			width: calc(50% - 10px);
-		}
-	`)
-
 	CKEDITOR.plugins.add('kontentcolumns', {
 		requires: 'widget,dialog',
 

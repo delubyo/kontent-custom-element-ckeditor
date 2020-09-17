@@ -15,6 +15,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
 		'kontentvimeo',
 		'kontentfacebook',
     'kontentcolumns',
+    'kontentforms',
 	];
 
 
@@ -38,6 +39,41 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
       margin: auto;
       width: 500px;
       height: 300px;
+    }
+
+    .ncoa-form {
+      position: relative;
+      display: block;
+      whitespace: nowrap;
+      padding: 10px 20px;
+      background-color: rgba(0,0,0,.1);
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .ncoa-form::after {
+      content: attr(data-form-id);
+      display: inline-block;
+      margin-left: 10px;
+    }
+
+    [data-form-vendor=pardot]::before {
+      content: "Pardot form: ";
+      display: inline-block;
+    }
+
+    [data-form-vendor=formassembly]::before {
+      content: "Formassebly form: ";
+      display: inline-block;
+    }
+
+    [data-form-vendor=rallybound]::before {
+      content: "Rallybound form: ";
+      display: inline-block;
+    }
+
+    .ncoa-form br {
+      display: none;
     }
   `);
 
@@ -169,7 +205,9 @@ function updateElementHeight() {
   CustomElement.setHeight(height);
 }
 
-
-// document.addEventListener('DOMContentLoaded', () => {
-// 	initializeCKEditor(document.getElementById('editor'), '');
-// });
+// If local testing, load immediately
+if ( location.hostname === 'localhost' ) {
+  document.addEventListener('DOMContentLoaded', () => {
+    initializeCKEditor(document.getElementById('editor'), '');
+  });
+}

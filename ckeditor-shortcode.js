@@ -1,9 +1,7 @@
 (() => {
 	const shortCodesPattern = new RegExp(
-		'\\[\(vimeo|youtube|facebook\)\\s+id="\(\[^"\]+\)".*\\]'
+		'\\[+\(vimeo|youtube|facebook|formassembly|pardot\-form\)\\s+\(?:form\)?id="?\(\[^"\\s\]+\)"?\\s?\(\[^\\]\]*\)\\]+'
 	, 'ig');
-
-	console.log({ shortCodesPattern });
 
 	const SHORTCODE_TO_HTML = {
 		youtube(shortcode, youtubeID) {
@@ -37,6 +35,21 @@
 			`;
 		},
 
+		formassembly(shortcode, formID, ...additionalData) {
+			return this.form(formID, 'formassembly');
+		},
+
+		['pardot-form'](shortcode, formID, ...additionalData) {
+			return this.form(formID, 'pardot');
+		},
+
+		form(formID = '', formVendor = '') {
+			return `
+				<div class="kontentforms ncoa-form ncoa-form--${formVendor}" data-form-id="${formID}" data-form-vendor="${formVendor}">
+				</div>
+			`;
+		}
+
 	};
 
 	window.CKEditorShortCode = window.CKEditorShortCode || {
@@ -59,9 +72,9 @@
 			return shortcode;
 		},
 
-		getTemplate(shortcodeType) {
+		getTemplate(shortcodeType, ...params) {
 			if ( shortcodeType in SHORTCODE_TO_HTML ) {
-				return SHORTCODE_TO_HTML[shortcodeType]();
+				return SHORTCODE_TO_HTML[shortcodeType](...params);
 			}
 			return '';
 		}

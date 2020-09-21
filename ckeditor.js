@@ -91,9 +91,9 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     extraPlugins: "autogrow,sourcedialog," + additionalPlugins.join(','),
     removePlugins: "sourcearea,resize,image,elementspath,link,iframe",
     allowedContent: true,
-    autoGrow_minHeight: 100,
+    autoGrow_minHeight: 600,
     autoGrow_onStartup: true,
-    autoGrow_maxHeight: 450,
+    autoGrow_maxHeight: 950,
     customJsImageBrowser: true, // use our custom asset selector as image browser
     customJsImageMethod: selectAndGetAsset, // promise returning the images URL,
     customJsLinkBrowser: true,
@@ -202,7 +202,9 @@ function updateElementHeight() {
     document.body.offsetHeight,
     document.documentElement.offsetHeight
   );
+  setTimeout(function(){
   CustomElement.setHeight(height);
+}, 1000);
 }
 
 // If local testing, load immediately

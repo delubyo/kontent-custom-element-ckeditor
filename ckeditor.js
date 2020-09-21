@@ -14,6 +14,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
 		'kontentyoutube',
 		'kontentvimeo',
 		'kontentfacebook',
+    'kontentpartnergriditems',
     'kontentcolumns',
     'kontentforms',
 	];
@@ -97,7 +98,8 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     customJsImageBrowser: true, // use our custom asset selector as image browser
     customJsImageMethod: selectAndGetAsset, // promise returning the images URL,
     customJsLinkBrowser: true,
-    customJsLinkMethod: selectAndGetItem
+    customJsLinkMethod: selectAndGetItem,
+    contentsCss: '/ckeditor-styles.css'
   };
 
   /* load toolbar config from element settings if present */

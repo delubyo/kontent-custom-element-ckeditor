@@ -9,7 +9,7 @@
 	const pluginName = 'kontentcolumns';
 
 	const template = `
-		<div class="kontentcolumns two-column">
+		<div class="kontentcolumns">
 		   <div class="two-column__left"></div>
 		   <div class="two-column__right"></div>
 		</div>
@@ -25,16 +25,17 @@
 			CKEDITOR.dialog.add( 'kontentcolumns', this.path + 'dialogs/kontentcolumns.js' );
 
 			// Add command
-			editor.addCommand( 'insertColumns', {
-				exec(editor) {
-          editor.insertHtml( template );
-				}
-			});
+			// editor.addCommand( 'insertColumns', {
+			// 	exec(editor) {
+   //        editor.insertHtml( template );
+			// 	}
+			// });
+			editor.addCommand( 'insertColumns', new CKEDITOR.dialogCommand( 'kontentcolumns' ));
 
 
       editor.widgets.add( 'kontentcolumns', {
       	button: 'kontentcolumns',
-	      template,
+	      // template,
 	      // template: "Test",
 	    	// dialog: 'kontentcolumns',
 	    	allowedContent: `div(!kontentcolumns)`,
@@ -46,16 +47,21 @@
 	        columnRight: {
 	          selector: 'div.two-column__right'
 	        },
+	        heading: '.partners-grid__heading',
+	        partnersGridItems: {
+	        	selector: '.partners-grid__items'
+	        }
 	    	},
 	    	upcast: function( element ) {
 					return element.name == 'div' && element.hasClass( 'kontentcolumns' );
 		    },
 		    init() {
-		   //  	const iframe = this.element.$.querySelector('iframe');
-		   //  	const youtubeID = window.utilities.extractYoutubeId(iframe.dataset.src);
+		    	const columnContainer = this.element.$;
+		    	const variant = columnContainer.dataset.variant;
+		    	const items = columnContainer.dataset.items;
 
-					// this.setData('url', iframe.dataset.src);
-					// this.setData('youtubeID', youtubeID);
+					this.setData('variant', variant);
+					this.setData('items', items);
 		    },
 		    upcast(element) {
 		    	return element.hasClass('kontentcolumns');

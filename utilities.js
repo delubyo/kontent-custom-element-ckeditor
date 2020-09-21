@@ -30,5 +30,52 @@
 			const [matches] = [...videoEmbedSrcURL.matchAll(facebookVideoURLPattern)];
 			return matches[0];
 		},
+
+		getTwoColumnTemplate(variant = '', items = 1) {
+			switch (variant) {
+				case 'partners-grid--tier1':
+				case 'partners-grid--tier2':
+					return `
+						<div class="partners-grid kontentpartnersgrid kontentcolumns" data-variant="${variant}" data-items="${items}">
+						  <div class="partners-grid__container partners-grid--${variant === 'partners-grid--tier1' ? 'tier1' : 'tier2' }">
+						    <h2 class="partners-grid__heading">Heading</h2>
+						    ${ this.getPartnerGridItemsTemplate(items) }
+						  </div>
+						</div>
+					`;
+
+				default:
+					return `
+						<div class="kontentcolumns two-column">
+						   <div class="two-column__left"></div>
+						   <div class="two-column__right"></div>
+						</div>
+					`;
+			}
+		},
+
+		getPartnerGridItemsTemplate(items = 1) {
+			return `
+				<div class="partners-grid__items">
+		    	${
+		    		Array.from({ length: items }).map(() => `
+		    			<div class="partners-grid__item">
+				        <div class="partners-grid__image">
+				          <a href="/">
+				            <img src="/card-placeholder.png" alt="">
+				          </a>
+				        </div>
+				        <div class="partners-grid__content">
+				          <a href="">Name</a>
+				          <div class="partners-grid__description">
+				            Description
+				          </div>
+				        </div>
+				      </div>
+		    		`).join('')
+		    	}
+		    </div>
+			`;
+		}
 	}
 })();

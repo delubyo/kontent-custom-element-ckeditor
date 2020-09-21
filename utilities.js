@@ -44,6 +44,32 @@
 						</div>
 					`;
 
+				case 'leadership-grid':
+					return `
+						<div class="leadership-grid">
+					  <div class="leadership-grid__container">
+					    <h2 class="leadership-grid__heading">Heading</h2>
+					    <div class="leadership-grid__items">
+					    	${
+					    		Array.from({ length: items }).map(() => `
+					    			<div class="leadership-grid__item">
+							        <div class="leadership-grid__image">
+							          <img src="card-placeholder.png" alt="Sample Image">
+							        </div>
+							        <div class="leadership-grid__content">
+							          <a href="/">Name</a>
+							          <div class="leadership-grid__description">
+							            Description
+							          </div>
+							        </div>
+							      </div>
+					    		`).join('')
+					    	}
+					    </div>
+					  </div>
+					</div>
+					`;
+
 				default:
 					return `
 						<div class="kontentcolumns two-column">
@@ -62,7 +88,7 @@
 		    			<div class="partners-grid__item">
 				        <div class="partners-grid__image">
 				          <a href="/">
-				            <img src="/card-placeholder.png" alt="">
+				            <img src="card-placeholder.png" alt="Sample Image">
 				          </a>
 				        </div>
 				        <div class="partners-grid__content">

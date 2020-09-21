@@ -78,6 +78,7 @@
 		 * @return {string}
 		 */
 		formatHTML(htmlWithShortcodes = '') {
+			if  (htmlWithShortcodes ===  null) return '';
 			return htmlWithShortcodes.replace(shortCodesPattern, this.toMarkup);
 		},
 

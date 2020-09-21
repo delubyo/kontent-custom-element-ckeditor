@@ -14,21 +14,24 @@ CKEDITOR.dialog.add( 'kontentvimeo', function( editor ) {
                         setup: function( widget ) {
                             this.setValue(widget.data.url);
                         },
-                        commit: function( elementOrWidget ) {
-                            const element = elementOrWidget.$ ? elementOrWidget.$ : elementOrWidget.element.$;
+                        commit: function( widget ) {
                             const url = this.getValue();
-
                             const vimeoID = window.utilities.extractVimeoId(url);
                             const vimeoURL = window.utilities.buildVimeoURL(vimeoID);
-
-                            const iframe = element.querySelector('iframe');
-
-                            if ( !elementOrWidget.$ ) {
-                                elementOrWidget.setData('url', vimeoURL);
-                            }
-
-                            iframe.src = vimeoURL;
-                            iframe.dataset.src = vimeoURL;
+                            widget.data.url = vimeoURL;
+                            widget.data.vimeoID = vimeoID;
+                        }
+                    },
+                    {
+                        id: 'title',
+                        type: 'text',
+                        label: 'Title',
+                        setup: function( widget ) {
+                            this.setValue(widget.data.title);
+                        },
+                        commit: function( widget ) {
+                            const title = this.getValue();
+                            widget.data.title = title;
                         }
                     },
                 ]
@@ -63,12 +66,20 @@ CKEDITOR.dialog.add( 'kontentvimeo', function( editor ) {
         },
         onOk: function(widget) {
             const dialog = this;
-            const element = this.element;
 
-            dialog.commitContent( element );
+            dialog.commitContent( widget );
+
+            const markup = CKEditorShortCode.getTemplate('vimeo', widget.data.vimeoID, widget.data.title);
 
             if ( dialog.insertMode ) {
-                editor.insertHtml( element.$.innerHTML.trim() );
+                this.element.setHtml(markup);
+                editor.insertHtml( this.element.getHtml() );
+            }
+            else {
+                const iframe = this.element.$.querySelector('iframe');
+                iframe.title = widget.data.title;
+                iframe.src = widget.data.url;
+                iframe.dataset.src = widget.data.url;
             }
         }
     };

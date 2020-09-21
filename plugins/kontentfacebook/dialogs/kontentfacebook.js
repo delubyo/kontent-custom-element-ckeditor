@@ -14,19 +14,23 @@ CKEDITOR.dialog.add( 'kontentfacebook', function( editor ) {
                         setup: function( widget ) {
                             this.setValue(widget.data.videoURL);
                         },
-                        commit: function( elementOrWidget ) {
-                            const element = elementOrWidget.$ ? elementOrWidget.$ : elementOrWidget.element.$;
+                        commit: function( widget ) {
                             const url = this.getValue();
                             const embedURL = window.utilities.buildFacebookURL(url);
-
-                            const iframe = element.querySelector('iframe');
-
-                            if ( !elementOrWidget.$ ) {
-                                elementOrWidget.setData('url', embedURL);
-                            }
-
-                            iframe.src = embedURL;
-                            iframe.dataset.src = embedURL;
+                            widget.data.url = embedURL;
+                            widget.data.videoURL = url;
+                        }
+                    },
+                    {
+                        id: 'title',
+                        type: 'text',
+                        label: 'Title',
+                        setup: function( widget ) {
+                            this.setValue(widget.data.title);
+                        },
+                        commit: function( widget ) {
+                            const title = this.getValue();
+                            widget.data.title = title;
                         }
                     },
                 ]
@@ -60,12 +64,19 @@ CKEDITOR.dialog.add( 'kontentfacebook', function( editor ) {
         },
         onOk: function(widget) {
             const dialog = this;
-            const element = this.element;
 
-            dialog.commitContent( element );
+            dialog.commitContent( widget );
 
             if ( dialog.insertMode ) {
-                editor.insertHtml( element.$.innerHTML.trim() );
+                const markup = CKEditorShortCode.getTemplate('facebook', widget.data.videoURL, widget.data.title);
+                this.element.setHtml(markup);
+                editor.insertHtml( this.element.getHtml() );
+            }
+            else {
+                const iframe = this.element.$.querySelector('iframe');
+                iframe.title = widget.data.title;
+                iframe.src = widget.data.url;
+                iframe.dataset.src = widget.data.videoURL;
             }
         }
     };

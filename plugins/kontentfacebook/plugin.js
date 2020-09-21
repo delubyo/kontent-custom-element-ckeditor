@@ -32,16 +32,16 @@
 		    },
 		    init() {
 		    	const iframe = this.element.$.querySelector('iframe');
-		    	const videoURL = window.utilities.extractFacebookVideoURL(iframe.dataset.src);
+		    	const videoURL = window.utilities.extractFacebookVideoURL(iframe.src);
 
-					this.setData('url', iframe.dataset.videoURL);
-					this.setData('videoURL', videoURL);
+					this.setData('url', iframe.src);
+					this.setData('videoURL', iframe.dataset.src);
 		    },
 		    data() {
 		    	const iframe = this.element.$.querySelector('iframe');
 
-		    	iframe.dataset.src = this.data.url;
-		    	iframe.src = `https://www.facebook.com/plugins/video.php?href=${this.data.videoURL}&show_text=0&width=560`;
+		    	iframe.dataset.src = this.data.videoURL;
+		    	iframe.src = this.data.url;
 		    }
 	    });
 

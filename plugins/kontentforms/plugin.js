@@ -21,12 +21,6 @@
 
 			// Add command
 			editor.addCommand( 'insertForm', new CKEDITOR.dialogCommand( pluginName ));
-			// editor.addCommand( 'insertYoutubeVideo', {
-			// 	exec(editor) {
-   //        editor.insertHtml( template );
-			// 	}
-			// });
-
 
       editor.widgets.add( pluginName, {
       	button: pluginName,
@@ -49,12 +43,10 @@
 		    upcast(element) {
 		    	return element.hasClass(pluginName);
 		    },
-		    data(a,b,c) {
+		    data() {
 		    	const container = this.element.$;
 		    	const formID = this.data.formID;
 		    	const formVendor = this.data.formVendor;
-
-		    	console.log('widget', this);
 
 		    	container.dataset.formId = formID;
 		    	container.dataset.formVendor = formVendor;

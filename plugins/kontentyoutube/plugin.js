@@ -21,12 +21,6 @@
 
 			// Add command
 			editor.addCommand( 'insertYoutubeVideo', new CKEDITOR.dialogCommand( 'kontentyoutube' ));
-			// editor.addCommand( 'insertYoutubeVideo', {
-			// 	exec(editor) {
-   //        editor.insertHtml( template );
-			// 	}
-			// });
-
 
       editor.widgets.add( 'kontentyoutube', {
       	button: 'kontentyoutube',
@@ -43,6 +37,7 @@
 		    	const youtubeID = window.utilities.extractYoutubeId(iframe.dataset.src);
 
 					this.setData('url', iframe.dataset.src);
+					this.setData('title', iframe.title);
 					this.setData('youtubeID', youtubeID);
 		    },
 		    upcast(element) {
@@ -52,6 +47,7 @@
 		    	const iframe = this.element.$.querySelector('iframe');
 
 		    	iframe.dataset.src = this.data.url;
+		    	iframe.title = this.data.title;
 		    	iframe.src = `https://www.youtube.com/embed/${this.data.youtubeID}`;
 		    }
 	    });

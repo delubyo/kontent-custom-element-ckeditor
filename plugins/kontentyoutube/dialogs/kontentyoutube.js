@@ -14,22 +14,23 @@ CKEDITOR.dialog.add( 'kontentyoutube', function( editor ) {
                         setup: function( widget ) {
                             this.setValue(widget.data.url);
                         },
-                        commit: function( elementOrWidget ) {
-                            console.log({ elementOrWidget });
-                            const element = elementOrWidget.$ ? elementOrWidget.$ : elementOrWidget.element.$;
+                        commit: function( widget ) {
                             const url = this.getValue();
                             const youtubeID = window.utilities.extractYoutubeId(url);
                             const youtubeURL = window.utilities.buildYoutubeURL(youtubeID);
-
-                            const iframe = element.querySelector('iframe');
-
-                            if ( !elementOrWidget.$ ) {
-                                elementOrWidget.setData('url', youtubeURL);
-                            }
-
-                            iframe.src = youtubeURL;
-                            iframe.dataset.src = youtubeURL;
-                            console.log('iframe.dataset.src',iframe.dataset.src);
+                            widget.data.url = youtubeURL;
+                        }
+                    },
+                    {
+                        id: 'title',
+                        type: 'text',
+                        label: 'Title',
+                        setup: function( widget ) {
+                            this.setValue(widget.data.title);
+                        },
+                        commit: function( widget ) {
+                            const title = this.getValue();
+                            widget.data.title = title;
                         }
                     },
                 ]
@@ -66,12 +67,20 @@ CKEDITOR.dialog.add( 'kontentyoutube', function( editor ) {
         },
         onOk: function(widget) {
             const dialog = this;
-            const element = this.element;
 
-            dialog.commitContent( element );
+            dialog.commitContent( widget );
+
+            const markup = CKEditorShortCode.getTemplate('youtube', widget.data.url, widget.data.title);
 
             if ( dialog.insertMode ) {
-                editor.insertHtml( element.$.innerHTML.trim() );
+                this.element.setHtml(markup);
+                editor.insertHtml( this.element.getHtml() );
+            }
+            else {
+                const iframe = this.element.$.querySelector('iframe');
+                iframe.title = widget.data.title;
+                iframe.src = widget.data.url;
+                iframe.dataset.src = widget.data.url;
             }
         }
     };

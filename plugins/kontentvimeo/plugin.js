@@ -30,15 +30,17 @@
 		    },
 		    init() {
 		    	const iframe = this.element.$.querySelector('iframe');
-		    	const vimeoID = window.utilities.extractVimeoId(iframe.dataset.src);
+		    	const vimeoID = window.utilities.extractVimeoId(iframe.src);
 
-					this.setData('url', iframe.dataset.src);
+					this.setData('url', iframe.src);
+					this.setData('title', iframe.title);
 					this.setData('vimeoID', vimeoID);
 		    },
 		    data() {
 		    	const iframe = this.element.$.querySelector('iframe');
 
 		    	iframe.dataset.src = this.data.url;
+		    	iframe.title = this.data.title;
 		    	iframe.src = `https://player.vimeo.com/video/${this.data.vimeoID}`;
 		    }
 	    });

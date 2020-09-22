@@ -99,7 +99,8 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     customJsImageMethod: selectAndGetAsset, // promise returning the images URL,
     customJsLinkBrowser: true,
     customJsLinkMethod: selectAndGetItem,
-    contentsCss: 'ckeditor-styles.css'
+    contentsCss: 'ckeditor-styles.css',
+    bodyClass: 'article-body'
   };
 
   /* load toolbar config from element settings if present */

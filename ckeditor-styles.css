@@ -2,6 +2,12 @@
 /*
 //
 /// Breakpoints */
+@keyframes animated {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 1; } }
+
 @keyframes animateIn {
   0% {
     opacity: 0; }
@@ -1351,9 +1357,27 @@ select::-ms-expand {
     opacity: 1;
     transform: translateY(0); }
 
+body.is-sticky {
+  display: block;
+  margin-top: 193px; }
+
+.ncoa-form iframe {
+  width: 100%;
+  height: 100%;
+  border: 0; }
+
+.ncoa-form[data-form-vendor=formassembly] {
+  height: 1500px; }
+
 /*
 //
 /// Breakpoints */
+@keyframes animated {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 1; } }
+
 @keyframes animateIn {
   0% {
     opacity: 0; }
@@ -2706,7 +2730,8 @@ body.font-increased .global-footer__policies, body.font-increased .global-footer
     line-height: 35px;
     line-height: 3.5rem;
     color: #2C2C2C;
-    font-weight: 600; }
+    font-weight: 600;
+    position: relative; }
     @media all and (min-width: 1024px) {
       .article-body blockquote p {
         max-width: 658px;
@@ -2718,9 +2743,11 @@ body.font-increased .global-footer__policies, body.font-increased .global-footer
         line-height: 5.2rem; } }
 
 .article-body .inline-image {
-  margin: 0 0 40px; }
+  margin: 0 0 40px;
+  grid-column: 1/span 13; }
   @media all and (min-width: 1024px) {
     .article-body .inline-image {
+      grid-column: 3/span 8;
       margin-bottom: 80px; } }
   .article-body .inline-image .image-container {
     position: relative; }
@@ -2877,6 +2904,12 @@ body.font-increased .global-footer__policies, body.font-increased .global-footer
 /*
 //
 /// Breakpoints */
+@keyframes animated {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 1; } }
+
 @keyframes animateIn {
   0% {
     opacity: 0; }
@@ -3876,6 +3909,12 @@ body.font-increased .global-footer__policies, body.font-increased .global-footer
 /*
 //
 /// Breakpoints */
+@keyframes animated {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 1; } }
+
 @keyframes animateIn {
   0% {
     opacity: 0; }
@@ -4914,7 +4953,8 @@ body.font-increased .global-footer__policies, body.font-increased .global-footer
     line-height: 35px;
     line-height: 3.5rem;
     color: #2C2C2C;
-    font-weight: 600; }
+    font-weight: 600;
+    position: relative; }
     @media all and (min-width: 1024px) {
       .article-body blockquote p {
         max-width: 658px;
@@ -4926,9 +4966,11 @@ body.font-increased .global-footer__policies, body.font-increased .global-footer
         line-height: 5.2rem; } }
 
 .article-body .inline-image {
-  margin: 0 0 40px; }
+  margin: 0 0 40px;
+  grid-column: 1/span 13; }
   @media all and (min-width: 1024px) {
     .article-body .inline-image {
+      grid-column: 3/span 8;
       margin-bottom: 80px; } }
   .article-body .inline-image .image-container {
     position: relative; }

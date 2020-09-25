@@ -7,7 +7,7 @@ function selectKontentAssets() {
 }
 
 function onAssetSelect([ asset ]) {
-    return CustomElement.getAssetDetails(asset);
+    return CustomElement.getAssetDetails([ asset.id ]);
 }
 
 CKEDITOR.dialog.add( 'kontentpdf', function( editor ) {
@@ -39,9 +39,9 @@ CKEDITOR.dialog.add( 'kontentpdf', function( editor ) {
                             const dialog = this.getDialog();
 
                             selectKontentAssets()
-                           .then(file => {
+                           .then(([file]) => {
                                console.log({ file });
-                               dialog.setValueOf('info', 'file', file);
+                               dialog.setValueOf('info', 'file', file.url);
                            })
                         }
                     },

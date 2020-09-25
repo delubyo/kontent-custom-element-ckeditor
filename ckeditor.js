@@ -17,6 +17,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     'kontentpartnergriditems',
     'kontentcolumns',
     'kontentforms',
+    'kontentpdf',
 	];
 
 
@@ -75,6 +76,32 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
 
     .ncoa-form br {
       display: none;
+    }
+
+    .kontentpdf {
+      display: block;
+      position: relative;
+      padding: 20px;
+      background-color: silver;
+    }
+
+    .kontentpdf br {
+      display: none;
+    }
+
+    .kontentpdf::before {
+      content: "PDF File: ";
+      display: inline-block;
+      font-family: 'Nuckle-Bold', serif;
+      font-weight: 600;
+      margin-right: 10px;
+    }
+
+    .kontentpdf::after {
+      content: attr(data-file);
+      display: inline-block;
+      font-family: 'Nuckle-Regular', serif;
+      font-style: italic;
     }
   `);
 

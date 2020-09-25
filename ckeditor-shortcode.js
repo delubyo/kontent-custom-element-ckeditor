@@ -65,6 +65,13 @@
 				<div class="kontentforms ncoa-form ncoa-form--${formVendor}" data-form-id="${formID}" data-form-vendor="${formVendor}">
 				</div>
 			`;
+		},
+
+		pdf(shortcode, file = '') {
+			return `
+				<div class="kontentpdf ncoa-pdf-container" data-file="${file}">
+				</div>
+			`
 		}
 
 	};

@@ -70,6 +70,7 @@
 		pdf(shortcode, file = '') {
 			return `
 				<div class="kontentpdf ncoa-pdf-container" data-file="${file}">
+					<strong>PDF File:</strong>&nbsp;<a href="${file}" target="_blank">
 				</div>
 			`
 		}

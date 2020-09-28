@@ -79,7 +79,9 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     }
 
     .kontentpdf {
-      display: block;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
       position: relative;
       padding: 20px;
       background-color: silver;
@@ -87,21 +89,6 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
 
     .kontentpdf br {
       display: none;
-    }
-
-    .kontentpdf::before {
-      content: "PDF File: ";
-      display: inline-block;
-      font-family: 'Nuckle-Bold', serif;
-      font-weight: 600;
-      margin-right: 10px;
-    }
-
-    .kontentpdf::after {
-      content: attr(data-file);
-      display: inline-block;
-      font-family: 'Nuckle-Regular', serif;
-      font-style: italic;
     }
   `);
 

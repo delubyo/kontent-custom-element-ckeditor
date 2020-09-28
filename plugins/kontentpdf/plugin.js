@@ -45,6 +45,7 @@
 		    	const file = this.data.file;
 
 		    	link.href = file;
+		    	link.textContent = file;
 		    	element.dataset.file = file;
 		    }
 	    });

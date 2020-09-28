@@ -7,7 +7,7 @@
 
 (function () {
 	return;
-	
+
 	CKEDITOR.plugins.add('kontentshortcode', {
 		requires: 'widget,dialog',
 
@@ -15,7 +15,7 @@
 
     init: function( editor ) {
       editor.widgets.add( 'kontentshortcode', {
-	      button: 'Shortcode',
+	      // button: 'Shortcode',
 	      template: '<p class="shortcode">Test Widget</p>',
 	      editables: {
 	        title: {

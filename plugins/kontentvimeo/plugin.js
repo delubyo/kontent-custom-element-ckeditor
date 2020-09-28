@@ -21,7 +21,7 @@
 			editor.addCommand( 'insertVimeoVideo', new CKEDITOR.dialogCommand( 'kontentvimeo' ));
 
       editor.widgets.add( pluginName, {
-      	button: pluginName,
+      	// button: pluginName,
 	      template: CKEditorShortCode.getTemplate('youtube'),
 	      // template: "Test",
 	    	dialog: pluginName,

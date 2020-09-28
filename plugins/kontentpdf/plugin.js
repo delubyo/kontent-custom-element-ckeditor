@@ -23,7 +23,7 @@
 			editor.addCommand( 'insertPDF', new CKEDITOR.dialogCommand( pluginName ));
 
       editor.widgets.add( pluginName, {
-      	button: pluginName,
+      	// button: pluginName,
 	      template,
 	      // template: "Test",
 	    	dialog: pluginName,

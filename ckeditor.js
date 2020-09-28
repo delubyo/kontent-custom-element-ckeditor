@@ -117,6 +117,27 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     bodyClass: 'article-body'
   };
 
+  // Toolbars
+  config.toolbarGroups = [
+    { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+    { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+    { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+    { name: 'forms', groups: [ 'forms' ] },
+    '/',
+    { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+    { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+    { name: 'links', groups: [ 'links' ] },
+    { name: 'insert', groups: [ 'insert' ] },
+    '/',
+    { name: 'styles', groups: [ 'styles' ] },
+    { name: 'colors', groups: [ 'colors' ] },
+    { name: 'tools', groups: [ 'tools' ] },
+    { name: 'others', groups: [ 'others' ] },
+    { name: 'about', groups: [ 'about' ] }
+  ];
+
+  config.removeButtons = 'Save,NewPage,ExportPdf,Preview,Print,Templates,PasteFromWord,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Underline,Outdent,Indent,JustifyBlock,BidiLtr,BidiRtl,Language,Anchor,Flash,Smiley,PageBreak,Iframe,HorizontalRule,About,Font,FontSize,Format,TextColor,BGColor';
+
   /* load toolbar config from element settings if present */
   if (element.config) {
     let toolbar = element.config.toolbar;

@@ -23,7 +23,7 @@
 			editor.addCommand( 'insertYoutubeVideo', new CKEDITOR.dialogCommand( 'kontentyoutube' ));
 
       editor.widgets.add( 'kontentyoutube', {
-      	button: 'kontentyoutube',
+      	// button: 'kontentyoutube',
 	      template,
 	      // template: "Test",
 	    	dialog: 'kontentyoutube',

@@ -34,7 +34,7 @@
 
 
       editor.widgets.add( pluginName, {
-      	button: pluginName,
+      	// button: pluginName,
 	      template: window.utilities.getPartnerGridItemsTemplate(1),
 	      // template: "Test",
 	    	dialog: pluginName,

@@ -23,7 +23,7 @@
 			editor.addCommand( 'insertFBVideo', new CKEDITOR.dialogCommand( 'kontentfacebook' ));
 
       editor.widgets.add( 'kontentfacebook', {
-      	button: 'kontentfacebook',
+      	// button: 'kontentfacebook',
 	      template: template,
 	      // template: "Test",
 	    	dialog: 'kontentfacebook',

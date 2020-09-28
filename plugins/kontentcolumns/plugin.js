@@ -34,7 +34,7 @@
 
 
       editor.widgets.add( 'kontentcolumns', {
-      	button: 'kontentcolumns',
+      	// button: 'kontentcolumns',
 	      // template,
 	      // template: "Test",
 	    	// dialog: 'kontentcolumns',

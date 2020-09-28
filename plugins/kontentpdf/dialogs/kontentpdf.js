@@ -40,9 +40,13 @@ CKEDITOR.dialog.add( 'kontentpdf', function( editor ) {
 
                             selectKontentAssets()
                            .then(([file]) => {
-                               console.log({ file });
-                               dialog.setValueOf('info', 'file', file.url);
-                           })
+                               if ( file.type === "application/pdf" ) {
+                                   dialog.setValueOf('info', 'file', file.url);
+                               }
+                               else {
+                                   alert('Please select a PDF File.');
+                               }
+                           });
                         }
                     },
                 ]

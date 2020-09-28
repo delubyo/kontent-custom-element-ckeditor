@@ -94,8 +94,9 @@ CKEDITOR.dialog.add( 'kontentpdf', function( editor ) {
                 editor.insertHtml( this.element.getHtml() );
             }
             else {
-                // this.element.
+                const link = this.element.$.querySelector('a');
                 this.element.$.firstElementChild.dataset.file = widget.data.file;
+                link.href = widget.data.file;
             }
         }
     };

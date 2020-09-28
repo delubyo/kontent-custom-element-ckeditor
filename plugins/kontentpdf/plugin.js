@@ -41,8 +41,10 @@
 		    },
 		    data() {
 		    	const element = this.element.$;
+		    	const link = element.querySelector('a');
 		    	const file = this.data.file;
 
+		    	link.href = file;
 		    	element.dataset.file = file;
 		    }
 	    });

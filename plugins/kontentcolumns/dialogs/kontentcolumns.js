@@ -80,7 +80,7 @@ CKEDITOR.dialog.add( 'kontentcolumns', function( editor, a, b, c ) {
 
             if ( dialog.insertMode ) {
                 this.element.setHtml(window.utilities.getTwoColumnTemplate(widget.data.variant, widget.data.items));
-                editor.insertHtml( this.element.getHtml() + '<br />' );
+                editor.insertHtml( '<br />' + this.element.getHtml() + '<br />' );
             }
         }
     };

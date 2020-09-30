@@ -60,7 +60,7 @@
 			return this.form(formID, 'pardot');
 		},
 
-		form(formID = '', formVendor = '') {
+		form(shortcode, formID = '', formVendor = '') {
 			return `
 				<div class="kontentforms ncoa-form ncoa-form--${formVendor}" data-form-id="${formID}" data-form-vendor="${formVendor}">
 				</div>

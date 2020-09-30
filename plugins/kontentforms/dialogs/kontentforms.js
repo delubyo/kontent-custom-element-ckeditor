@@ -76,7 +76,7 @@ CKEDITOR.dialog.add( 'kontentforms', function( editor ) {
 
             if ( dialog.insertMode ) {
                 this.element.setHtml(markup);
-                editor.insertHtml( this.element.getHtml() );
+                editor.insertHtml( this.element.getHtml() + '<br />' );
             }
             else {
                 // this.element.

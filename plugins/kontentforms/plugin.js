@@ -27,7 +27,7 @@
 	      template,
 	      // template: "Test",
 	    	dialog: pluginName,
-	    	allowedContent: `div(!${pluginName})`,
+	    	allowedContent: `div(${pluginName})`,
 	    	requiredContent: `div(${pluginName})`,
 	    	upcast: function( element ) {
 					return element.name == 'div' && element.hasClass( pluginName );

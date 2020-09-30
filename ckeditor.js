@@ -20,78 +20,6 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     'kontentpdf',
 	];
 
-
-  CKEDITOR.addCss(`
-    .kontentcolumns {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .kontentcolumns > * {
-      width: calc(50% - 10px);
-    }
-
-    .embed {
-      display: block;
-    }
-
-    .embed iframe {
-      border: none !important;
-      display: block;
-      margin: auto;
-      width: 500px;
-      height: 300px;
-    }
-
-    .ncoa-form {
-      position: relative;
-      display: block;
-      whitespace: nowrap;
-      padding: 10px 20px;
-      background-color: rgba(0,0,0,.1);
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .ncoa-form::after {
-      content: attr(data-form-id);
-      display: inline-block;
-      margin-left: 10px;
-    }
-
-    [data-form-vendor=pardot]::before {
-      content: "Pardot form: ";
-      display: inline-block;
-    }
-
-    [data-form-vendor=formassembly]::before {
-      content: "Formassebly form: ";
-      display: inline-block;
-    }
-
-    [data-form-vendor=rallybound]::before {
-      content: "Rallybound form: ";
-      display: inline-block;
-    }
-
-    .ncoa-form br {
-      display: none;
-    }
-
-    .kontentpdf {
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      position: relative;
-      padding: 20px;
-      background-color: silver;
-    }
-
-    .kontentpdf br {
-      display: none;
-    }
-  `);
-
 	additionalPlugins.forEach(pluginName => {
 		CKEDITOR.plugins.addExternal(
 	    pluginName,
@@ -114,7 +42,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     customJsLinkBrowser: true,
     customJsLinkMethod: selectAndGetItem,
     contentsCss: 'ckeditor-styles.css',
-    bodyClass: 'article-body'
+    bodyClass: 'article-body__wrapper'
   };
 
   // Toolbars

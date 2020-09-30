@@ -63,6 +63,7 @@
 		form(shortcode, formID = '', formVendor = '') {
 			return `
 				<div class="kontentforms ncoa-form ncoa-form--${formVendor}" data-form-id="${formID}" data-form-vendor="${formVendor}">
+					<span style="font-size: 0px">form container</span>
 				</div>
 			`;
 		},

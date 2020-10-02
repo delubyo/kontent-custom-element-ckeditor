@@ -9021,7 +9021,8 @@ body.font-increased .global-footer__policies, body.font-increased .global-footer
   margin-left: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
-  color: #2C2C2C; }
+  color: #2C2C2C;
+  box-sizing: border-box; }
   @media all and (min-width: 1024px) {
     .article-body__wrapper > * {
       grid-column: 1 / -1; } }

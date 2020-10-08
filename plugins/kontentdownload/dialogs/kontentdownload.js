@@ -35,7 +35,8 @@ CKEDITOR.dialog.add( 'kontentdownload', function( editor ) {
                         id: 'browse',
                         type: 'button',
                         label: 'Browse Server',
-                        onClick(widget) {
+                        onClick: function(widget) {
+                            console.log('on click', widget);
                             const dialog = this.getDialog();
 
                             selectKontentAssets()

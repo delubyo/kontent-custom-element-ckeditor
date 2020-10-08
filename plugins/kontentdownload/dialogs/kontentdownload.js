@@ -28,7 +28,7 @@ CKEDITOR.dialog.add( 'kontentdownload', function( editor ) {
                         },
                         commit: function( widget ) {
                             // const file = this.getValue();
-                            // widget.data.file = file;
+                            widget.data.file = widget.data.file;
                         }
                     },
                     {

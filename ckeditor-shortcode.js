@@ -76,14 +76,23 @@
 			`
 		},
 
-		file(shortcode, file = '', fileName = '', fileType = '') {
+		file(shortcode, file) {
+			const fileName = file.fileName.split('.')[0];
+			const fileType = file.fileName.split('.')[1];
+			const fileUrl = file.url;
+			const fileSize = file.size;
+
+			const kb = (fileSize / Math.pow(1024, 1));
+			const mb = (fileSize / Math.pow(1024, 2));
+			const fileSizeString = mb >= 1 ? `${mb.toFixed(0)}Mb` : `${kb.toFixed(0)}Kb`;
+
 			return `
 				<div class="download">
 					<div class="file">
 						<h4 class="file__name">${ fileName }</h4>
-						<p class="file__meta">.${ fileType }</p>
+						<p class="file__meta">.${ fileType } - ${ fileSizeString }</p>
 					</div>
-					<a class="download__btn" href="#" download="${ fileName }" target="_blank">Download</a>
+					<a class="download__btn" href="${ fileUrl }" download="${ fileName }" target="_blank">Download</a>
 				</div>
 			`
 		}

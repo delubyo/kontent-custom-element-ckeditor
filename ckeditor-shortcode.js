@@ -83,6 +83,24 @@
 			return `
 				<div class="download">
 					<div class="file">
+						<div class="icon-box" aria-hidden="true">
+							<svg class="icon-box__mobile" width="57" height="76" viewBox="0 0 57 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M0 23.75C0 10.6332 10.6332 0 23.75 0H57V76H0V23.75Z" fill="#0B4A5D"/>
+								<rect x="11.875" y="33.25" width="33.25" height="3.16667" rx="1.58333" fill="white"/>
+								<rect x="11.875" y="25.3333" width="33.25" height="3.16667" rx="1.58333" fill="white"/>
+								<rect x="11.875" y="17.4167" width="33.25" height="3.16667" rx="1.58333" fill="white"/>
+								<rect x="11.875" y="41.1667" width="16.625" height="3.16667" rx="1.58333" fill="white"/>
+							</svg>
+
+							<svg class="icon-box__desktop" width="72" height="96" viewBox="0 0 72 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M0 30C0 13.4315 13.4315 0 30 0H72V96H0V30Z" fill="#0B4A5D"/>
+								<rect x="15" y="42" width="42" height="4" rx="2" fill="white"/>
+								<rect x="15" y="32" width="42" height="4" rx="2" fill="white"/>
+								<rect x="15" y="22" width="42" height="4" rx="2" fill="white"/>
+								<rect x="15" y="52" width="21" height="4" rx="2" fill="white"/>
+							</svg>
+						</div>
+						
 						<h4 class="file__name">${ fileName }</h4>
 						<p class="file__meta">.${ fileType }</p>
 					</div>

@@ -10422,42 +10422,46 @@ body.font-increased .global-footer__policies, body.font-increased .global-footer
   .download__btn {
     display: block;
     appearance: initial;
-    padding: 14px;
+    padding: 14px !important;
     height: 45px;
-    width: 100%;
+    width: 100% !important;
     background-color: #0B4A5D;
+    background-image: none !important;
     border: 0;
-    font-family: "Nuckle-SemiBold", sans-serif;
+    font-family: "Nuckle-SemiBold", sans-serif !important;
     font-style: normal;
     font-weight: 600;
-    font-size: 14px;
-    font-size: 1.4rem;
-    line-height: 17px;
-    line-height: 1.7rem;
+    font-size: 14px !important;
+    font-size: 1.4rem !important;
+    line-height: 17px !important;
+    line-height: 1.7rem !important;
     text-align: center;
-    color: #FFF;
+    color: #FFF !important;
     border-radius: 44px;
     border: 2px solid #0B4A5D;
-    transition: all 250ms linear;
+    transition: all 250ms linear !important;
     box-sizing: border-box; }
+    .download__btn::after {
+      content: none !important;
+    }
     @media all and (min-width: 768px) {
       .download__btn {
-        width: calc(((((100vw - 40px) - (8px * 11)) / 12) * 8) + (8px * 7));
+        width: calc(((((100vw - 40px) - (8px * 11)) / 12) * 8) + (8px * 7)) !important;
         margin-left: calc(((((100vw - 40px) - (8px * 11)) / 12) * 1) + (8px * 1)); } }
     @media all and (min-width: 1024px) {
       .download__btn {
         height: 60px;
-        width: calc((((1206px - (32px * 11)) / 12) * 2) + (32px * 2));
+        width: calc((((1206px - (32px * 11)) / 12) * 2) + (32px * 2)) !important;
         margin-left: calc((((1206px - (32px * 11)) / 12) * 0) + (32px * 1));
         padding: 19px;
         border-radius: 60px;
-        font-size: 18px;
-        font-size: 1.8rem;
-        line-height: 22px;
-        line-height: 2.2rem; } }
+        font-size: 18px !important;
+        font-size: 1.8rem !important;
+        line-height: 22px !important;
+        line-height: 2.2rem !important; } }
     .download__btn:hover, .download__btn:focus {
       background-color: #FFF;
-      color: #0B4A5D;
+      color: #0B4A5D !important;
       text-decoration: none; }
 
 .article-body__wrapper {

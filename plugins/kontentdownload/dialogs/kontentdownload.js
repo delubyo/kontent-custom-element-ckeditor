@@ -28,7 +28,7 @@ CKEDITOR.dialog.add( 'kontentdownload', function( editor ) {
                         },
                         commit: function( widget ) {
                             // const file = this.getValue();
-                            widget.data.file = widget.data.file;
+                            // widget.data.file = widget.data.file;
                         }
                     },
                     {
@@ -82,7 +82,11 @@ CKEDITOR.dialog.add( 'kontentdownload', function( editor ) {
         onOk: function(widget) {
             const dialog = this;
 
-            dialog.commitContent( widget ); 
+            console.log('before commit content', widget);
+
+            dialog.commitContent( widget );
+            
+            console.log('after commit content', widget);
 
             const markup = CKEditorShortCode.getTemplate('file', widget.data.file);
 

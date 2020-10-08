@@ -92,6 +92,7 @@ CKEDITOR.dialog.add( 'kontentdownload', function( editor ) {
             }
             else {
                 const file = widget.data.file || {};
+                console.log(file);
                 const fileName = typeof file == 'object' && file.hasOwnProperty('fileName') ? file.fileName.split('.')[0] : '';
                 const fileType = typeof file == 'object' && file.hasOwnProperty('fileName') ? file.fileName.split('.')[1] : '';
                 const fileUrl = typeof file == 'object' && file.hasOwnProperty('url') ? file.url : '';

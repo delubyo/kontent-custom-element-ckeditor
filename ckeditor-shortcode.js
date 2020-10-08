@@ -76,14 +76,28 @@
 			`
 		},
 
-		file(shortcode, file = '', fileName = '', fileType = '') {
+		file(shortcode, file) {
+			const file = widget.data.file || {};
+			const fileName = typeof file == 'object' && file.hasOwnProperty('fileName') ? file.fileName.split('.')[0] : '';
+			const fileType = typeof file == 'object' && file.hasOwnProperty('fileName') ? file.fileName.split('.')[1] : '';
+			const fileUrl = typeof file == 'object' && file.hasOwnProperty('url') ? file.url : '';
+			const fileSize = typeof file == 'object' && file.hasOwnProperty('size') ? file.size : 0;
+
+			let fileSizeString = '';
+			if (fileSize > 0) {
+				const kb = (fileSize / Math.pow(1024, 1));
+				const mb = (fileSize / Math.pow(1024, 2));
+				
+				fileSizeString = mb >= 1 ? `${mb.toFixed(0)}Mb` : `${kb.toFixed(0)}Kb`;
+			}
+
 			return `
 				<div class="download">
 					<div class="file">
 						<h4 class="file__name">${ fileName }</h4>
-						<p class="file__meta">.${ fileType }</p>
+						<p class="file__meta">.${ fileType } - ${ fileSizeString }</p>
 					</div>
-					<a class="download__btn" href="#" download="${ fileName }" target="_blank">Download</a>
+					<a class="download__btn" href="${ fileUrl }" download="${ fileName }" target="_blank">Download</a>
 				</div>
 			`
 		}

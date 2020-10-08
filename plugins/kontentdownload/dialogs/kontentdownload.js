@@ -27,22 +27,24 @@ CKEDITOR.dialog.add( 'kontentdownload', function( editor ) {
                             this.setValue(widget.data.file);
                         },
                         commit: function( widget ) {
-                            const file = this.getValue();
-                            widget.data.file = file;
+                            // const file = this.getValue();
+                            // widget.data.file = file;
                         }
                     },
                     {
                         id: 'browse',
                         type: 'button',
                         label: 'Browse Server',
-                        onClick(a) {
+                        onClick(widget) {
                             const dialog = this.getDialog();
 
                             selectKontentAssets()
                            .then(([file]) => {
-                               console.log(file);
-                               
-                              dialog.setValueOf('info', 'file', file.url);
+                                // file name: file.fileName (with file type already)
+                                // file type: get it from file name
+                                // file size: file.size
+                                widget.data.file = file;
+                                dialog.setValueOf('info', 'file', file.url);
                            });
                         }
                     },
@@ -59,7 +61,7 @@ CKEDITOR.dialog.add( 'kontentdownload', function( editor ) {
             }
 
             if ( !element || element.getName() != 'div' ) {
-                const markup = CKEditorShortCode.getTemplate('pdf');
+                const markup = CKEditorShortCode.getTemplate('file');
                 const div = editor.document.createElement('div');
 
                 div.setHtml(markup);
@@ -80,21 +82,45 @@ CKEDITOR.dialog.add( 'kontentdownload', function( editor ) {
         onOk: function(widget) {
             const dialog = this;
 
-            dialog.commitContent( widget );
+            dialog.commitContent( widget ); 
 
-            console.log('widget.data',widget.data);
-
-            const markup = CKEditorShortCode.getTemplate('pdf', widget.data.file);
+            const markup = CKEditorShortCode.getTemplate('file', widget.data.file);
 
             if ( dialog.insertMode ) {
                 this.element.setHtml(markup);
                 editor.insertHtml( this.element.getHtml() );
             }
             else {
-                const link = this.element.$.querySelector('a');
-                this.element.$.firstElementChild.dataset.file = widget.data.file;
-                link.href = widget.data.file;
-                link.textContent = widget.data.file;
+                const file = widget.data.file || {};
+                const fileName = typeof file == 'object' && file.hasOwnProperty('fileName') ? file.fileName.split('.')[0] : '';
+                const fileType = typeof file == 'object' && file.hasOwnProperty('fileName') ? file.fileName.split('.')[1] : '';
+                const fileUrl = typeof file == 'object' && file.hasOwnProperty('url') ? file.url : '';
+                const fileSize = typeof file == 'object' && file.hasOwnProperty('size') ? file.size : 0;
+
+                let fileSizeString = '';
+                if (fileSize > 0) {
+                    const kb = (fileSize / Math.pow(1024, 1));
+                    const mb = (fileSize / Math.pow(1024, 2));
+                    
+                    fileSizeString = mb >= 1 ? `${mb.toFixed(0)}Mb` : `${kb.toFixed(0)}Kb`;
+                }
+            
+                const fileNameNode = this.element.$.querySelector('.file__name');
+                const fileMetaNode = this.element.$.querySelector('.file__meta');
+                const downloadBtnNode = this.element.$.querySelector('.download__btn');
+
+                if (fileNameNode) {
+                    fileNameNode.innnerHTML = fileName;
+                }
+
+                if (fileMetaNode) {
+                    fileMetaNode.innnerHTML = `.${ fileType } - ${ fileSizeString }`;
+                }
+
+                if (downloadBtnNode) {
+                    downloadBtnNode.setAttribute('href', fileUrl);
+                    downloadBtnNode.setAttribute('download', fileName);
+                }
             }
         }
     };

@@ -74,6 +74,18 @@
 					<strong>PDF File:</strong>&nbsp;<a href="${file}" target="_blank">${file}</a>
 				</div>
 			`
+		},
+
+		file(shortcode, file = '', fileName = '', fileType = '') {
+			return `
+				<div class="download">
+					<div class="file">
+						<h4 class="file__name">${ fileName }</h4>
+						<p class="file__meta">.${ fileType }</p>
+					</div>
+					<a class="download__btn" href="${ fileUrl }" download="${ fileName }" target="_blank">Download</a>
+				</div>
+			`
 		}
 
 	};

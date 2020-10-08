@@ -18,6 +18,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     'kontentcolumns',
     'kontentforms',
     'kontentpdf',
+    'kontentdownload',
 	];
 
 	additionalPlugins.forEach(pluginName => {

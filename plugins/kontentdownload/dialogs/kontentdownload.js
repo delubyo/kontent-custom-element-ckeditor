@@ -90,8 +90,8 @@ CKEDITOR.dialog.add( 'kontentdownload', function( editor ) {
             }
             else {
                 const url = widget.data.file;
-                const fileName = url.split('.')[0];
-                const fileType = url.split('.')[1];
+                const fileName = url.split('/').pop().split('.')[0];
+                const fileType = url.split('/').pop().split('.')[1];
 
                 const fileNameNode = this.element.$.querySelector('.file__name');
                 const fileMetaNode = this.element.$.querySelector('.file__meta');

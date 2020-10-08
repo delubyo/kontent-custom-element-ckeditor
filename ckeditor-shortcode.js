@@ -77,8 +77,8 @@
 		},
 
 		file(shortcode, file = '') {
-			const fileName = file.split('.')[0];
-			const fileType = file.split('.')[1];
+			const fileName = file.split('/').pop().split('.')[0];
+			const fileType = file.split('/').pop().split('.')[1];
 
 			return `
 				<div class="download">

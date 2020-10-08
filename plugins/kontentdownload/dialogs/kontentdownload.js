@@ -24,7 +24,7 @@ CKEDITOR.dialog.add( 'kontentdownload', function( editor ) {
                         type: 'text',
                         label: 'File',
                         setup: function( widget ) {
-                            this.setValue(widget.data.file.url);
+                            this.setValue(widget.data.file);
                         },
                         commit: function( widget ) {
                             const file = this.getValue();
@@ -40,11 +40,9 @@ CKEDITOR.dialog.add( 'kontentdownload', function( editor ) {
 
                             selectKontentAssets()
                            .then(([file]) => {
-                                // file name: file.fileName (with file type already)
-                                // file type: get it from file name
-                                // file size: file.size
+                               console.log(file);
                                
-                                dialog.setValueOf('info', 'file', file);
+                              dialog.setValueOf('info', 'file', file.url);
                            });
                         }
                     },
@@ -61,7 +59,7 @@ CKEDITOR.dialog.add( 'kontentdownload', function( editor ) {
             }
 
             if ( !element || element.getName() != 'div' ) {
-                const markup = CKEditorShortCode.getTemplate('file');
+                const markup = CKEditorShortCode.getTemplate('pdf');
                 const div = editor.document.createElement('div');
 
                 div.setHtml(markup);
@@ -82,41 +80,21 @@ CKEDITOR.dialog.add( 'kontentdownload', function( editor ) {
         onOk: function(widget) {
             const dialog = this;
 
-            dialog.commitContent( widget ); 
+            dialog.commitContent( widget );
 
-            const markup = CKEditorShortCode.getTemplate('file', widget.data.file);
+            console.log('widget.data',widget.data);
+
+            const markup = CKEditorShortCode.getTemplate('pdf', widget.data.file);
 
             if ( dialog.insertMode ) {
                 this.element.setHtml(markup);
                 editor.insertHtml( this.element.getHtml() );
             }
             else {
-                const file = widget.data.file;
-                const fileName = file.fileName.split('.')[0];
-                const fileType = file.fileName.split('.')[1];
-                const fileUrl = file.url;
-                const fileSize = file.size;
-
-                const kb = (fileSize / Math.pow(1024, 1));
-                const mb = (fileSize / Math.pow(1024, 2));
-                const fileSizeString = mb >= 1 ? `${mb.toFixed(0)}Mb` : `${kb.toFixed(0)}Kb`;
-            
-                const fileNameNode = this.element.$.querySelector('.file__name');
-                const fileMetaNode = this.element.$.querySelector('.file__meta');
-                const downloadBtnNode = this.element.$.querySelector('.download__btn');
-
-                if (fileNameNode) {
-                    fileNameNode.innnerHTML = fileName;
-                }
-
-                if (fileMetaNode) {
-                    fileMetaNode.innnerHTML = `.${ fileType } - ${ fileSizeString }`;
-                }
-
-                if (downloadBtnNode) {
-                    downloadBtnNode.setAttribute('href', fileUrl);
-                    downloadBtnNode.setAttribute('download', fileName);
-                }
+                const link = this.element.$.querySelector('a');
+                this.element.$.firstElementChild.dataset.file = widget.data.file;
+                link.href = widget.data.file;
+                link.textContent = widget.data.file;
             }
         }
     };

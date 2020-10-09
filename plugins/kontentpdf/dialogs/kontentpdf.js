@@ -85,13 +85,10 @@ CKEDITOR.dialog.add( 'kontentpdf', function( editor ) {
 
             dialog.commitContent( widget );
 
-            console.log('widget.data',widget.data);
-
             const markup = CKEditorShortCode.getTemplate('pdf', widget.data.file);
 
             if ( dialog.insertMode ) {
                 this.element.setHtml(markup);
-                console.log('pdf markup', markup);
                 editor.insertHtml( this.element.getHtml() );
             }
             else {

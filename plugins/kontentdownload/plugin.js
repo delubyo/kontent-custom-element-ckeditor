@@ -60,13 +60,6 @@
 							downloadBtnNode.setAttribute('href', url);
 							downloadBtnNode.setAttribute('download', fileName);
 					}
-		    	// const element = this.element.$;
-		    	// const link = element.querySelector('a');
-		    	// const file = this.data.file;
-
-		    	// link.href = file;
-		    	// link.textContent = file;
-		    	// element.dataset.file = file;
 		    }
 	    });
 

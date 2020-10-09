@@ -91,6 +91,7 @@ CKEDITOR.dialog.add( 'kontentpdf', function( editor ) {
 
             if ( dialog.insertMode ) {
                 this.element.setHtml(markup);
+                console.log('pdf markup', markup);
                 editor.insertHtml( this.element.getHtml() );
             }
             else {

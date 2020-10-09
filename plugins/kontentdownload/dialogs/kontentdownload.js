@@ -86,6 +86,7 @@ CKEDITOR.dialog.add( 'kontentdownload', function( editor ) {
 
             if ( dialog.insertMode ) {
                 this.element.setHtml(markup);
+                console.log('file embed markup', markup);
                 editor.insertHtml( this.element.getHtml() );
             }
             else {

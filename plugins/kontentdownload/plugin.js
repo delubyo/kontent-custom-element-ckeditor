@@ -33,20 +33,38 @@
 					return element.name == 'div' && element.hasClass( pluginName );
 		    },
 		    init() {
-					const element = this.element.$;
-					const downloadBtn = element.querySelector('.download__btn');
-
-		    	this.setData('file', downloadBtn.getAttribute('href'));
+		    	const element = this.element.$;
+		    	this.setData('file', element.dataset.file);
 		    },
 		    upcast(element) {
 		    	return element.hasClass(pluginName);
 		    },
 		    data() {
-		    	const element = this.element.$;
-		    	const link = element.querySelector('a');
-		    	const file = this.data.file;
+					const url = this.data.file;
+					const fileName = url.split('/').pop().split('.')[0];
+					const fileType = url.split('/').pop().split('.')[1];
 
-		    	link.href = file;
+					const fileNameNode = this.element.$.querySelector('.file__name');
+					const fileMetaNode = this.element.$.querySelector('.file__meta');
+					const downloadBtnNode = this.element.$.querySelector('.download__btn');
+
+					if (fileNameNode) {
+							fileNameNode.innnerHTML = fileName;
+					}
+
+					if (fileMetaNode) {
+							fileMetaNode.innnerHTML = `.${ fileType }`;
+					}
+
+					if (downloadBtnNode) {
+							downloadBtnNode.setAttribute('href', url);
+							downloadBtnNode.setAttribute('download', fileName);
+					}
+		    	// const element = this.element.$;
+		    	// const link = element.querySelector('a');
+		    	// const file = this.data.file;
+
+		    	// link.href = file;
 		    	// link.textContent = file;
 		    	// element.dataset.file = file;
 		    }

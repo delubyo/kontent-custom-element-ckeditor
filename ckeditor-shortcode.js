@@ -81,7 +81,7 @@
 			const fileType = file.split('/').pop().split('.')[1];
 
 			return `
-				<div class="download">
+				<div class="kontentdownload download" data-file="${file}">
 					<div class="file">
 						<div class="icon-box" aria-hidden="true">
 							<svg class="icon-box__mobile" width="57" height="76" viewBox="0 0 57 76" fill="none" xmlns="http://www.w3.org/2000/svg">

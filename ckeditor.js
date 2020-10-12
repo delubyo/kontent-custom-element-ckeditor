@@ -80,6 +80,26 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
   //   groups: [ 'document' ]
   // });
 
+  /* on dialog definition */
+  CKEDITOR.on('dialogDefinition', function(evt) {
+    const dialog = evt.data;
+    console.log('dialog definition running', dialog.name);
+
+    if (dialog.name === 'table') {
+      console.log('table dialog found', evt);
+      const def = evt.data.definition;
+      const info = def.getContents('info');
+
+      // disable headers
+      def.onShow = function() {
+        const caption = info.getContent('caption');
+        console.log(caption);
+        // const caption = this.getContentElement('info', 'selHeaders');
+      //   select.disable();
+      }
+    }
+  });
+
   let ckeditor = CKEDITOR.replace("editor", config);
 
   /* what to do on autogrow */
@@ -103,26 +123,6 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
 
     // resizes editor to initial height
     updateElementHeight();
-
-    /* on dialog definition */
-    ckeditor.on('dialogDefinition', function(evt) {
-      const dialog = evt.data;
-      console.log('dialog definition running', dialog.name);
-
-      if (dialog.name === 'table') {
-        console.log('table dialog found', evt);
-        const def = evt.data.definition;
-        const info = def.getContents('info');
-
-        // disable headers
-        def.onShow = function() {
-          const caption = info.getContent('caption');
-          console.log(caption);
-          // const caption = this.getContentElement('info', 'selHeaders');
-        //   select.disable();
-        }
-      }
-    });
   });
 
   /* on editor blur */

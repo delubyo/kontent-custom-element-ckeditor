@@ -93,19 +93,8 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
       
       // remove fields
       const info = def.getContents('info');
-      // info.remove('txtCaption');
+      info.remove('txtCaption');
       info.remove('txtSummary');
-      
-      // console.log('table dialog found', evt);
-      // const info = def.getContents('info');
-
-      // def.onShow = function() {
-
-      //   // const caption = info.get('caption');
-      //   // console.log(caption, evt);
-      // //   // const caption = this.getContentElement('info', 'selHeaders');
-      // // //   select.disable();
-      // }
     }
   });
 

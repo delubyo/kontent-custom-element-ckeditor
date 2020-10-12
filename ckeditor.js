@@ -86,16 +86,26 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     console.log('dialog definition running', dialog.name);
 
     if (dialog.name === 'table') {
-      // console.log('table dialog found', evt);
       const def = evt.data.definition;
+      
+      // remove advance tab
+      def.removeContents('advanced');
+      
+      // remove fields
       const info = def.getContents('info');
+      // info.remove('txtCaption');
+      info.remove('txtSummary');
+      
+      // console.log('table dialog found', evt);
+      // const info = def.getContents('info');
 
-      def.onShow = function() {
-        const caption = info.get('caption');
-        console.log(caption);
-      //   // const caption = this.getContentElement('info', 'selHeaders');
-      // //   select.disable();
-      }
+      // def.onShow = function() {
+
+      //   // const caption = info.get('caption');
+      //   // console.log(caption, evt);
+      // //   // const caption = this.getContentElement('info', 'selHeaders');
+      // // //   select.disable();
+      // }
     }
   });
 

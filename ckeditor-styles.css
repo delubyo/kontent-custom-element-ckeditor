@@ -8963,7 +8963,7 @@ body.font-increased .global-footer__policies--three {
 .article-body__wrapper .leadership-grid__items {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: flex-start;
 	padding-left: calc(((((100vw - 40px) - (8px * 11)) / 12) * 1) + (8px * 1));
 }
 
@@ -12160,7 +12160,7 @@ body.font-increased .global-footer__policies--three {
 .article-body__wrapper .leadership-grid__items {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: flex-start;
 	padding-left: calc(((((100vw - 40px) - (8px * 11)) / 12) * 1) + (8px * 1));
 }
 
@@ -12184,7 +12184,7 @@ body.font-increased .global-footer__policies--three {
 .article-body__wrapper .leadership-grid__item {
 	text-align: center;
 	margin-bottom: 20px;
-	width: calc(50% - (35px / 2));
+	width: 33%;
 }
 
 @media all and (min-width: 1024px) {

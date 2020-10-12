@@ -86,16 +86,15 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     console.log('dialog definition running', dialog.name);
 
     if (dialog.name === 'table') {
-      console.log('table dialog found', evt);
+      // console.log('table dialog found', evt);
       const def = evt.data.definition;
       const info = def.getContents('info');
 
-      // disable headers
       def.onShow = function() {
-        const caption = info.getContent('caption');
+        const caption = info.get('caption');
         console.log(caption);
-        // const caption = this.getContentElement('info', 'selHeaders');
-      //   select.disable();
+      //   // const caption = this.getContentElement('info', 'selHeaders');
+      // //   select.disable();
       }
     }
   });

@@ -108,8 +108,10 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
   /* on dialog definition */
   ckeditor.on('dialogDefinition', function(evt) {
     const dialog = evt.data;
+    console.log('dialog definition running', dialog.name);
 
     if (dialog.name === 'table') {
+      console.log('table dialog found', evt);
       const def = evt.data.definition;
       const info = def.getContents('info');
 

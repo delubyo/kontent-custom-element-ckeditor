@@ -105,6 +105,24 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     updateElementHeight();
   });
 
+  /* on dialog definition */
+  ckeditor.on('dialogDefinition', function(evt) {
+    const dialog = evt.data;
+
+    if (dialog.name === 'table') {
+      const def = evt.data.definition;
+      const info = def.getContents('info');
+
+      // disable headers
+      def.onShow = function() {
+        const caption = info.getContent('caption');
+        console.log(caption);
+        // const caption = this.getContentElement('info', 'selHeaders');
+      //   select.disable();
+      }
+    }
+  });
+
   /* on editor blur */
   ckeditor.on("blur", function () {
     save(ckeditor);

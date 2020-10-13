@@ -54,7 +54,7 @@
 					    		Array.from({ length: items }).map(() => `
 					    			<div class="leadership-grid__item">
 							        <div class="leadership-grid__image">
-							          <img src="card-placeholder.png" alt="Sample Image" class="leadership-grid__img">
+							          <img src="https://via.placeholder.com/200" alt="Sample Image" class="leadership-grid__img">
 							        </div>
 							        <div class="leadership-grid__content">
 							          <a href="/">Name</a>

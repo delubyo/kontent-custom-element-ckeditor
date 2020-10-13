@@ -12223,11 +12223,21 @@ body.font-increased .global-footer__policies--three {
 
 .leadership-grid__image,
 .article-body__wrapper .leadership-grid__image {
+	position: relative;
 	overflow: hidden;
 	border-radius: 50%;
 	width: 114px;
 	height: 114px;
 	margin: 0 auto 15px auto;
+}
+
+.leadership-grid__image > span,
+.article-body__wrapper .leadership-grid__image > span {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
 }
 
 @media all and (min-width: 1024px) {

@@ -88,7 +88,7 @@
 		    			<div class="partners-grid__item">
 				        <div class="partners-grid__image">
 				          <a href="/">
-				            <img src="card-placeholder.png" alt="Sample Image" class="partners-grid__img">
+				            <img src="https://via.placeholder.com/200" alt="Sample Image" class="partners-grid__img">
 				          </a>
 				        </div>
 				        <div class="partners-grid__content">

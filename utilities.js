@@ -54,7 +54,7 @@
 					    		Array.from({ length: items }).map(() => `
 					    			<div class="leadership-grid__item">
 							        <div class="leadership-grid__image">
-							          <img src="/profile-placeholder.svg" alt="Sample Image" class="leadership-grid__img">
+							          <img src="profile-placeholder.svg" alt="Sample Image" class="leadership-grid__img">
 							        </div>
 							        <div class="leadership-grid__content">
 							          <a href="/">Name</a>
@@ -88,7 +88,7 @@
 		    			<div class="partners-grid__item">
 				        <div class="partners-grid__image">
 				          <a href="/">
-				            <img src="/profile-placeholder.svg" alt="Sample Image" class="partners-grid__img">
+				            <img src="profile-placeholder.svg" alt="Sample Image" class="partners-grid__img">
 				          </a>
 				        </div>
 				        <div class="partners-grid__content">

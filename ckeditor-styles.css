@@ -12271,6 +12271,12 @@ body.font-increased .global-footer__policies--three {
 	margin-bottom: 10px;
 	display: inline-block;
 	word-break: break-all;
+	transition: all 300ms ease-in-out;
+}
+
+.leadership-grid__content a:hover,
+.article-body__wrapper .leadership-grid__content a:hover {
+	color: #FFF;
 }
 
 @media all and (min-width: 1024px) {

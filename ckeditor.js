@@ -87,16 +87,13 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     if (dialog.name === 'table') {
       const def = evt.data.definition;
 
-      def.onShow = () => {
-        console.log('on show', def);
-        // remove advance tab
-        def.removeContents('advanced');
-        
-        // remove fields
-        const info = def.getContents('info');
-        info.remove('txtCaption');
-        info.remove('txtSummary');
-      }
+      // remove advance tab
+      def.removeContents('advanced');
+      
+      // remove fields
+      const info = def.getContents('info');
+      info.remove('txtCaption');
+      info.remove('txtSummary');
     }
   });
 

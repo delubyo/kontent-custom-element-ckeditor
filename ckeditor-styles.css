@@ -7501,6 +7501,14 @@ body.font-increased .global-footer__policies--three {
 	max-width: 130px;
 }
 
+.partners-grid__image a {
+	background-image: none;
+}
+
+.partners-grid__image a::after {
+	content: none;
+}
+
 @media all and (min-width: 1024px) {
 	.partners-grid--tier2 .partners-grid__image,
 	.article-body__wrapper .partners-grid--tier2 .partners-grid__image {

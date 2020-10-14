@@ -10780,6 +10780,36 @@ body.font-increased .global-footer__policies--three {
 	opacity: 1;
 }
 
+.article-body__wrapper table {
+    width: 100% !important;
+    display: block;
+    border: 1px solid #000;
+}
+
+.article-body__wrapper table tbody {
+    display: block;
+}
+
+.article-body__wrapper table tbody tr {
+    display: flex;
+    border-bottom: 1px solid #000
+}
+
+.article-body__wrapper table tbody tr:last-child {
+    border-bottom: 0;
+}
+
+.article-body__wrapper table tbody tr td {
+    flex: 1;
+    display: block;
+    border: 0;
+    border-right: 1px solid #000;
+}
+
+.article-body__wrapper table tbody tr td:last-child {
+    border-right: 0;
+}
+
 
 /*
 //

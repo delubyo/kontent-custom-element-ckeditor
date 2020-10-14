@@ -10760,6 +10760,38 @@ body.font-increased .global-footer__policies--three {
 	margin-right: 6%;
 }
 
+.article-body__wrapper .partners-grid__image > a > .cke_widget_image::after {
+	content: 'Make sure to have an equal aspect ratio for each images';
+	font-size: 10px;
+	line-height: 12px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	text-align: left;
+	padding: 15px;
+	color: #FFF;
+	background-color: rgba(0, 0, 0, 0.7);
+	pointer-events: none;
+	opacity: 0;
+}
+
+.article-body__wrapper .partners-grid__image > a > .cke_widget_image:hover::after {
+	content: 'Make sure to have an equal aspect ratio for each images';
+	font-size: 10px;
+	line-height: 12px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	text-align: left;
+	padding: 15px;
+	color: #FFF;
+	background-color: rgba(0, 0, 0, 0.7);
+	pointer-events: none;
+	opacity: 0;
+}
+
 
 /*
 //

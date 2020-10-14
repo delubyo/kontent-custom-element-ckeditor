@@ -83,18 +83,19 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
   /* on dialog definition */
   CKEDITOR.on('dialogDefinition', function(evt) {
     const dialog = evt.data;
-    console.log('dialog definition running', dialog.name);
 
     if (dialog.name === 'table') {
       const def = evt.data.definition;
-      
-      // remove advance tab
-      def.removeContents('advanced');
-      
-      // remove fields
-      const info = def.getContents('info');
-      info.remove('txtCaption');
-      info.remove('txtSummary');
+
+      def.dialog.on('show', function() {
+        // remove advance tab
+        def.removeContents('advanced');
+        
+        // remove fields
+        const info = def.getContents('info');
+        info.remove('txtCaption');
+        info.remove('txtSummary');
+      });
     }
   });
 

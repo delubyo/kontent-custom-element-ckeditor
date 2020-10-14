@@ -87,7 +87,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     if (dialog.name === 'table') {
       const def = evt.data.definition;
 
-      def.dialog.on('show', function() {
+      def.onShow = function() {
         // remove advance tab
         def.removeContents('advanced');
         
@@ -95,7 +95,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
         const info = def.getContents('info');
         info.remove('txtCaption');
         info.remove('txtSummary');
-      });
+      }
     }
   });
 

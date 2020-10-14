@@ -7326,7 +7326,7 @@ body.font-increased .global-footer__policies--three {
 
 .partners-grid__item:nth-child(even),
 .article-body__wrapper .partners-grid__item:nth-child(even) {
-	grid-column: 2 / span 11;
+	width: 46%;
 }
 
 @media all and (min-width: 1024px) {
@@ -7338,7 +7338,8 @@ body.font-increased .global-footer__policies--three {
 
 .partners-grid__item:nth-child(odd),
 .article-body__wrapper .partners-grid__item:nth-child(odd) {
-	grid-column: 2 / span 11;
+	width: 46%;
+	margin-right: 6%;
 }
 
 @media all and (min-width: 1024px) {
@@ -10484,9 +10485,8 @@ body.font-increased .global-footer__policies--three {
 
 .partners-grid__items,
 .article-body__wrapper .partners-grid__items {
-	grid-template-columns: repeat(12, 1fr);
-	display: grid;
-	grid-column: 1 / span 12;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 @supports (grid-column-gap: 8px) {
@@ -10535,7 +10535,7 @@ body.font-increased .global-footer__policies--three {
 
 .partners-grid__item:nth-child(odd),
 .article-body__wrapper .partners-grid__item:nth-child(odd) {
-	grid-column: 2 / span 11;
+	grid-column: 2 / span 5;
 }
 
 @media all and (min-width: 1024px) {

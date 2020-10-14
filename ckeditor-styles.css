@@ -7501,7 +7501,7 @@ body.font-increased .global-footer__policies--three {
 	max-width: 130px;
 }
 
-.partners-grid__image a {
+.partners-grid__image a:hover {
 	background-image: none;
 }
 

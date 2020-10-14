@@ -81,7 +81,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
   // });
 
   /* on dialog definition */
-  CKEDITOR.on('dialogShow', function(evt) {
+  CKEDITOR.on('dialogDefinition', function(evt) {
     const dialog = evt.data;
 
     if (dialog.name === 'table') {

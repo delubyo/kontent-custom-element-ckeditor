@@ -87,7 +87,8 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     if (dialog.name === 'table') {
       const def = evt.data.definition;
 
-      def.onShow = function() {
+      def.onShow = () => {
+        console.log('on show', def);
         // remove advance tab
         def.removeContents('advanced');
         

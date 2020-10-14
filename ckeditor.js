@@ -92,6 +92,8 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
       
       // remove fields
       const info = def.getContents('info');
+      info.remove('txtWidth');
+      info.remove('txtHeight');
       info.remove('txtCaption');
       info.remove('txtSummary');
     }

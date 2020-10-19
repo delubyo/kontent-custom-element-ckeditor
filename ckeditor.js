@@ -6,6 +6,8 @@ CustomElement.init((element, context) => {
   // console.log('page id', context.item.id);
   // CustomElement.getItemDetails([context.item.id]).then(data => console.log(data));
   CustomElement.getElementValue('url', (value) => console.log(value));
+  CustomElement.getElementValue('title', (value) => console.log(value));
+  CustomElement.getElementValue('display_date', (value) => console.log(value));
 
   initializeCKEditor(element);
 });

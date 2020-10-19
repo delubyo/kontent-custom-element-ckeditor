@@ -3,8 +3,9 @@ AUTOSAVE_INTERVAL = 15000;
 let item_url_macro = "domain.com/{codename}";
 
 CustomElement.init((element, context) => {
-  console.log('element data', element);
-  console.log('context data', context);
+  console.log('page id', context.item.id);
+  console.log(typeof CustomElement.getItemDetails(context.item.id));
+
   initializeCKEditor(element);
 });
 

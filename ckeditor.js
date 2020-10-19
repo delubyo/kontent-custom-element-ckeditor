@@ -3,9 +3,6 @@ AUTOSAVE_INTERVAL = 15000;
 let item_url_macro = "domain.com/{codename}";
 
 CustomElement.init((element, context) => {
-  CustomElement.getElementValue('url', (value) => console.log(value));
-  CustomElement.observeElementChanges(['url'], (value) => console.log('on change', value));
-
   initializeCKEditor(element);
 });
 

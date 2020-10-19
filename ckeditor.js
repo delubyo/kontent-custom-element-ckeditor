@@ -4,6 +4,7 @@ let item_url_macro = "domain.com/{codename}";
 
 CustomElement.init((element, context) => {
   console.log('element data', element);
+  console.log('context data', context);
   initializeCKEditor(element);
 });
 

@@ -46,26 +46,24 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     bodyClass: 'article-body__wrapper'
   };
 
-  // Toolbars
   config.toolbarGroups = [
-    { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
-    { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
-    { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
-    { name: 'forms', groups: [ 'forms' ] },
-    '/',
-    { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-    { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
-    { name: 'links', groups: [ 'links' ] },
-    { name: 'insert', groups: [ 'insert' ] },
-    '/',
-    { name: 'styles', groups: [ 'styles' ] },
-    { name: 'colors', groups: [ 'colors' ] },
-    { name: 'tools', groups: [ 'tools' ] },
-    { name: 'others', groups: [ 'others' ] },
-    { name: 'about', groups: [ 'about' ] }
+		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+		{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+		{ name: 'forms', groups: [ 'forms' ] },
+		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+		{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+		{ name: 'links', groups: [ 'links' ] },
+		{ name: 'insert', groups: [ 'insert' ] },
+		'/',
+		{ name: 'styles', groups: [ 'styles' ] },
+		{ name: 'colors', groups: [ 'colors' ] },
+		{ name: 'tools', groups: [ 'tools' ] },
+		{ name: 'others', groups: [ 'others' ] },
+		{ name: 'about', groups: [ 'about' ] }
   ];
-
-  config.removeButtons = 'Save,NewPage,ExportPdf,Preview,Print,Templates,PasteFromWord,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Underline,Outdent,Indent,JustifyBlock,BidiLtr,BidiRtl,Language,Anchor,Flash,Smiley,PageBreak,Iframe,HorizontalRule,About,Font,FontSize,Format,TextColor,BGColor,Source,Cut,Copy,Paste,PasteText,Undo,Redo,Find,Replace,SelectAll,Strike,Subscript,Superscript,RemoveFormat,CreateDiv,JustifyLeft,JustifyCenter,JustifyRight,CopyFormat,SpecialChar,Maximize';
+  
+  config.removeButtons = 'Source,Save,NewPage,ExportPdf,Preview,Print,Templates,Cut,Copy,Paste,PasteText,PasteFromWord,Undo,Redo,Find,Replace,SelectAll,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Strike,Subscript,Superscript,CopyFormatting,RemoveFormat,Outdent,Indent,CreateDiv,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,BidiLtr,BidiRtl,Language,Anchor,Flash,HorizontalRule,Smiley,SpecialChar,PageBreak,Iframe,Format,Font,FontSize,TextColor,BGColor,Maximize,ShowBlocks,About';
 
   /* load toolbar config from element settings if present */
   if (element.config) {

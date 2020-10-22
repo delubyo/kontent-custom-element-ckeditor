@@ -32,7 +32,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
   let config = {
     skin: "moono-lisa",
     customConfig: `${basePath}/config.js`,
-    extraPlugins: "autogrow,sourcedialog," + additionalPlugins.join(','),
+    extraPlugins: "autogrow," + additionalPlugins.join(','),
     removePlugins: "sourcearea,resize,image,elementspath,link,iframe",
     allowedContent: true,
     autoGrow_minHeight: 600,
@@ -64,8 +64,6 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
   ];
   
   config.removeButtons = 'Source,Save,NewPage,ExportPdf,Preview,Print,Templates,Cut,Copy,Paste,PasteText,PasteFromWord,Undo,Redo,Find,Replace,SelectAll,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Strike,Subscript,Superscript,CopyFormatting,RemoveFormat,Outdent,Indent,CreateDiv,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,BidiLtr,BidiRtl,Language,Anchor,Flash,HorizontalRule,Smiley,SpecialChar,PageBreak,Iframe,Format,Font,FontSize,TextColor,BGColor,Maximize,ShowBlocks,About';
-
-  config.removePlugins = 'sourcearea';
 
   /* load toolbar config from element settings if present */
   if (element.config) {

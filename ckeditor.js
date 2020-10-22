@@ -65,7 +65,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     { name: 'about', groups: [ 'about' ] }
   ];
 
-  config.removeButtons = 'Save,NewPage,ExportPdf,Preview,Print,Templates,PasteFromWord,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Underline,Outdent,Indent,JustifyBlock,BidiLtr,BidiRtl,Language,Anchor,Flash,Smiley,PageBreak,Iframe,HorizontalRule,About,Font,FontSize,Format,TextColor,BGColor,Source,Cut,Copy,Paste,PasteText,Undo,Redo,Find,Replace,SelectAll,Strike';
+  config.removeButtons = 'Save,NewPage,ExportPdf,Preview,Print,Templates,PasteFromWord,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Underline,Outdent,Indent,JustifyBlock,BidiLtr,BidiRtl,Language,Anchor,Flash,Smiley,PageBreak,Iframe,HorizontalRule,About,Font,FontSize,Format,TextColor,BGColor,Source,Cut,Copy,Paste,PasteText,Undo,Redo,Find,Replace,SelectAll,Strike,Subscript,Superscript,RemoveFormat,CreateDiv,JustifyLeft,JustifyCenter,JustifyRight';
 
   /* load toolbar config from element settings if present */
   if (element.config) {

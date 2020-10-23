@@ -43,7 +43,8 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     customJsLinkBrowser: true,
     customJsLinkMethod: selectAndGetItem,
     contentsCss: 'ckeditor-styles.css',
-    bodyClass: 'article-body__wrapper'
+    bodyClass: 'article-body__wrapper',
+    basicEntities: false,
   };
 
   config.toolbarGroups = [

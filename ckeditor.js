@@ -96,8 +96,6 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     }
   });
 
-  CKEDITOR.dtd.$removeEmpty.div = 0
-
   let ckeditor = CKEDITOR.replace("editor", config);
 
   /* what to do on autogrow */

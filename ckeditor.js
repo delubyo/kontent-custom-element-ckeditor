@@ -44,7 +44,6 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     customJsLinkMethod: selectAndGetItem,
     contentsCss: 'ckeditor-styles.css',
     bodyClass: 'article-body__wrapper',
-    ignoreEmptyParagraph: false,
   };
 
   config.toolbarGroups = [

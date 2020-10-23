@@ -44,7 +44,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     customJsLinkMethod: selectAndGetItem,
     contentsCss: 'ckeditor-styles.css',
     bodyClass: 'article-body__wrapper',
-    extraAllowedContent: 'div',
+    ignoreEmptyParagraph: false,
   };
 
   config.toolbarGroups = [
@@ -96,6 +96,8 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
       info.remove('txtSummary');
     }
   });
+
+  CKEDITOR.dtd.$removeEmpty.div = 0
 
   let ckeditor = CKEDITOR.replace("editor", config);
 

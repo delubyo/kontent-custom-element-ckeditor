@@ -100,12 +100,25 @@
 								<rect x="15" y="52" width="21" height="4" rx="2" fill="white"/>
 							</svg>
 						</div>
-						
+
 						<h4 class="file__name">${ fileName }</h4>
 						<p class="file__meta">.${ fileType }</p>
 					</div>
 					<a class="download__btn" href="${ file }" download="${ fileName }" target="_blank">Download</a>
 				</div>
+			`
+		},
+
+		votervoice(shortcode, id = '') {
+			return `
+				<div class="kontentvotervoice">
+					<div class="kontentvotervoice__title">Voter Voice Embed:</div>
+					<div>
+						<div class="kontentvotervoice__url">https://www.votervoice.net/</div>
+						<div class="kontentvotervoice__id">${id}</div>
+					</div>
+				</div>
+				<br />
 			`
 		}
 

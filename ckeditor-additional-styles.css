@@ -1,0 +1,27 @@
+.kontentvotervoice {
+	padding: 10px;
+	background-color: rgba(0,0,0,.1);
+}
+
+.kontentvotervoice__title {
+	font-weight: bolder;
+}
+
+.kontentvotervoice__url {
+	font-weight: lighter;
+	display: inline;
+	font-size: .8em;
+}
+
+.kontentvotervoice__id {
+	display: inline;
+	font-weight: bolder;
+	padding-right: 10px;
+	font-size: .8em;
+}
+
+.kontentvotervoice__id * {
+	display: contents;
+	margin: 0;
+	padding: 0;
+}

@@ -19,6 +19,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     'kontentforms',
     'kontentpdf',
     'kontentdownload',
+    'kontentvotervoice',
 	];
 
 	additionalPlugins.forEach(pluginName => {
@@ -42,7 +43,10 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     customJsImageMethod: selectAndGetAsset, // promise returning the images URL,
     customJsLinkBrowser: true,
     customJsLinkMethod: selectAndGetItem,
-    contentsCss: 'ckeditor-styles.css',
+    contentsCss: [
+      'ckeditor-styles.css',
+      'ckeditor-additional-styles.css',
+    ],
     bodyClass: 'article-body__wrapper',
   };
 
@@ -61,7 +65,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
 		{ name: 'others', groups: [ 'others' ] },
 		{ name: 'about', groups: [ 'about' ] }
   ];
-  
+
   config.removeButtons = 'Source,Save,NewPage,ExportPdf,Preview,Print,Templates,Cut,Copy,Paste,PasteText,PasteFromWord,Undo,Redo,Find,Replace,SelectAll,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Strike,Subscript,Superscript,CopyFormatting,RemoveFormat,Outdent,Indent,CreateDiv,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,BidiLtr,BidiRtl,Language,Anchor,Flash,HorizontalRule,Smiley,SpecialChar,PageBreak,Iframe,Format,Font,FontSize,TextColor,BGColor,Maximize,ShowBlocks,About';
 
   /* load toolbar config from element settings if present */
@@ -86,7 +90,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
 
       // remove advance tab
       def.removeContents('advanced');
-      
+
       // remove fields
       const info = def.getContents('info');
       info.remove('txtWidth');

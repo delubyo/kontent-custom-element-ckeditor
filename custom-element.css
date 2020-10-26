@@ -2423,6 +2423,9 @@ input:checked~.switch__label{
   color:#2196f3;
 }
 
-
+.kontentvotervoice__id {
+  display: inline-block;
+  font-weight: bolder;
+}
 
 

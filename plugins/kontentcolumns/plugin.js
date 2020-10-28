@@ -67,6 +67,7 @@
 		    	return element.hasClass('kontentcolumns');
 		    },
 		    data() {
+		    	console.log('data');
 		    	// const iframe = this.element.$.querySelector('iframe');
 
 		    	// iframe.dataset.src = this.data.url;

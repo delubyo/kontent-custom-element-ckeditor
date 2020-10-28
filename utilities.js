@@ -38,6 +38,7 @@
 					return `
 						<div class="partners-grid kontentpartnersgrid kontentcolumns" data-variant="${variant}" data-items="${items}">
 						  <div class="partners-grid__container partners-grid--${variant === 'partners-grid--tier1' ? 'tier1' : 'tier2' }">
+						    <h2 class="partners-grid__heading">Heading</h2>
 						    ${ this.getPartnerGridItemsTemplate(items) }
 						  </div>
 						</div>
@@ -47,6 +48,7 @@
 					return `
 						<div class="leadership-grid">
 					  <div class="leadership-grid__container">
+					  	<h2 class="leadership-grid__heading">Heading</h2>
 					    <div class="leadership-grid__items">
 					    	${
 					    		Array.from({ length: items }).map(() => `

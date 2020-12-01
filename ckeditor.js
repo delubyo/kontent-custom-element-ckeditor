@@ -34,7 +34,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     skin: "moono-lisa",
     customConfig: `${basePath}/config.js`,
     extraPlugins: "autogrow," + additionalPlugins.join(','),
-    removePlugins: "sourcearea,resize,image,elementspath,link,iframe",
+    removePlugins: "sourcearea,resize,image,elementspath,link,iframe,stylescombo",
     allowedContent: true,
     autoGrow_minHeight: 600,
     autoGrow_onStartup: true,

@@ -34,7 +34,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     skin: "moono-lisa",
     customConfig: `${basePath}/config.js`,
     extraPlugins: "autogrow," + additionalPlugins.join(','),
-    removePlugins: "sourcearea,resize,image,elementspath,link,iframe,stylescombo",
+    removePlugins: "sourcearea,resize,image,elementspath,link,iframe",
     allowedContent: true,
     autoGrow_minHeight: 600,
     autoGrow_onStartup: true,
@@ -66,14 +66,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
 		{ name: 'about', groups: [ 'about' ] }
   ];
 
-  config.removeButtons = 'Source,Save,NewPage,ExportPdf,Preview,Print,Templates,Cut,Copy,Paste,PasteText,PasteFromWord,Undo,Redo,Find,Replace,SelectAll,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Strike,Subscript,CopyFormatting,RemoveFormat,Outdent,Indent,CreateDiv,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,BidiLtr,BidiRtl,Language,Anchor,Flash,HorizontalRule,Smiley,SpecialChar,PageBreak,Iframe,Font,FontSize,TextColor,BGColor,Maximize,ShowBlocks,About,Styles';
-
-  config.format_tags = 'p;h2';
-
-  CKEDITOR.lang.load('en', 'en', function() {
-    CKEDITOR.lang.en.format.tag_h2 = 'Heading';
-    CKEDITOR.lang.en.format.tag_p = 'Paragraph';
-  });
+  config.removeButtons = 'Source,Save,NewPage,ExportPdf,Preview,Print,Templates,Cut,Copy,Paste,PasteText,PasteFromWord,Undo,Redo,Find,Replace,SelectAll,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Strike,Subscript,CopyFormatting,RemoveFormat,Outdent,Indent,CreateDiv,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,BidiLtr,BidiRtl,Language,Anchor,Flash,HorizontalRule,Smiley,SpecialChar,PageBreak,Iframe,Font,FontSize,TextColor,BGColor,Maximize,ShowBlocks,About,Format';
 
   /* load toolbar config from element settings if present */
   if (element.config) {

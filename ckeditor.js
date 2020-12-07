@@ -6,6 +6,21 @@ CustomElement.init((element, context) => {
   initializeCKEditor(element);
 });
 
+CKEDITOR.addStylesSet('customstyleset', [
+  {
+    name: 'Heading',
+    element: 'h2',
+  },
+  {
+    name: 'Paragraph',
+    element: 'p',
+  },
+  {
+    name: 'Small',
+    element: 'small',
+  },
+]);
+
 function initializeCKEditor(element, basePath = '/kontent-custom-element-ckeditor') {
 	const additionalPlugins = [
 		'kontentimage',
@@ -80,6 +95,8 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
   //   name: 'kentico_toolbar',
   //   groups: [ 'document' ]
   // });
+
+  CKEDITOR.config.stylesCombo_stylesSet = 'customstyleset';
 
   /* on dialog definition */
   CKEDITOR.on('dialogDefinition', function(evt) {

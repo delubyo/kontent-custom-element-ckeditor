@@ -48,7 +48,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
   let config = {
     skin: "moono-lisa",
     customConfig: `${basePath}/config.js`,
-    extraPlugins: "autogrow," + additionalPlugins.join(','),
+    extraPlugins: "autogrow, sourcedialog," + additionalPlugins.join(','),
     removePlugins: "resize,image,elementspath,link,iframe",
     allowedContent: true,
     autoGrow_minHeight: 600,

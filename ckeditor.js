@@ -3,6 +3,8 @@ AUTOSAVE_INTERVAL = 15000;
 
 let item_url_macro = "domain.com/{codename}";
 let projectId;
+var Kc;
+var deliveryClient;
 
 CustomElement.init((element, context) => {
   projectId = context.projectId;
@@ -145,9 +147,9 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     // resizes editor to initial height
     updateElementHeight();
 
-    var Kc = window['kontentDelivery'];
+    Kc = window['kontentDelivery'];
 
-    var deliveryClient = new Kc.DeliveryClient({
+    deliveryClient = new Kc.DeliveryClient({
 			projectId: projectId
 		});
   });
@@ -199,6 +201,8 @@ function selectAndGetItem() {
           items => {
             if (items[0])
             console.log('items[0]',items[0]);
+            console.log('Kc', Kc);
+            console.log('deliveryClient', deliveryClient);
             // deliveryClient.item(items[0].codename)
             //   .toObservable()
             //   .subscribe(response => console.log("item".response.item));

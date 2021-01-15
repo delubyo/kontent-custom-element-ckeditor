@@ -189,6 +189,7 @@ function selectAndGetItem() {
         CustomElement.getItemDetails(results.map(e => e.id)).then(
           items => {
             if (items[0])
+            console.log('items[0]',items[0]);
               var contentType = items[0].type.codename;
               var url = '';
 

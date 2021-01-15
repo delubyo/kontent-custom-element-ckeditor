@@ -144,7 +144,12 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     // resizes editor to initial height
     updateElementHeight();
 
-    console.log('window', window['kontentDelivery']);
+    var Kc = window['kontentDelivery'];
+
+    console.log('projectId', projectId);
+    // var deliveryClient = new Kc.DeliveryClient({
+		// 	projectId: '78e2ae35-101d-006d-5fc9-3d7274eaf5d6'
+		// });
   });
 
   /* on editor blur */
@@ -193,7 +198,10 @@ function selectAndGetItem() {
         CustomElement.getItemDetails(results.map(e => e.id)).then(
           items => {
             if (items[0])
-            console.log('items[0]',items[0], projectId);
+            console.log('items[0]',items[0]);
+            // deliveryClient.item(items[0].codename)
+            //   .toObservable()
+            //   .subscribe(response => console.log("item".response.item));
               var contentType = items[0].type.codename;
               var url = '';
 

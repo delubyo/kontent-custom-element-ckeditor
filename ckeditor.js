@@ -189,9 +189,28 @@ function selectAndGetItem() {
         CustomElement.getItemDetails(results.map(e => e.id)).then(
           items => {
             if (items[0])
-            console.log('items[0]', items[0].type.codename);
+            const contentType = items[0].type.codename;
+            let url;
+
+            switch(contentType) {
+              case 'ncoa_article_content':
+                  url = 'article/'+ items[0].codename;
+                  break;
+
+              case 'standard_page':
+              case 'standard_page__special':
+                url = 'page/'+ items[0].codename;
+                break;
+
+              case 'awa_benefits_tool_template___standard_page':
+                url = 'pages/'+ items[0].codename;
+                break;
+
+              default:
+                url = items[0].codename;
+            }
               resolve(
-                item_url_macro.replace("{codename}", items[0].codename)
+                item_url_macro.replace("{codename}", url)
               );
             resolve(null);
           }

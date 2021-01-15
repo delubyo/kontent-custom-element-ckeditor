@@ -147,10 +147,9 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
 
     var Kc = window['kontentDelivery'];
 
-    console.log('projectId', projectId);
-    // var deliveryClient = new Kc.DeliveryClient({
-		// 	projectId: '78e2ae35-101d-006d-5fc9-3d7274eaf5d6'
-		// });
+    var deliveryClient = new Kc.DeliveryClient({
+			projectId: projectId
+		});
   });
 
   /* on editor blur */

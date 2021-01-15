@@ -5,8 +5,7 @@ let item_url_macro = "domain.com/{codename}";
 let projectId;
 
 CustomElement.init((element, context) => {
-  console.log('context', context);
-  console.log('element', element);
+  projectId = context.projectId;
   initializeCKEditor(element);
 });
 
@@ -93,7 +92,6 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     let toolbar = element.config.toolbar;
     if (toolbar) config.toolbarGroups = toolbar;
     item_url_macro = element.config.itemUrlMacro; // load url macro for item hyperlinks
-    projectId = element.config.projectId;
   }
 
   // config.toolbarGroups = config.toolbarGroups || [];

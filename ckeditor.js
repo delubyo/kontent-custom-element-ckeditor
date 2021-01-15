@@ -189,7 +189,7 @@ function selectAndGetItem() {
         CustomElement.getItemDetails(results.map(e => e.id)).then(
           items => {
             if (items[0])
-            console.log('items[0]', items[0]);
+            console.log('items[0]', items[0].type.codename);
               resolve(
                 item_url_macro.replace("{codename}", items[0].codename)
               );

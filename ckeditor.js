@@ -91,6 +91,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
     let toolbar = element.config.toolbar;
     if (toolbar) config.toolbarGroups = toolbar;
     item_url_macro = element.config.itemUrlMacro; // load url macro for item hyperlinks
+    projectId = element.config.projectId;
   }
 
   // config.toolbarGroups = config.toolbarGroups || [];

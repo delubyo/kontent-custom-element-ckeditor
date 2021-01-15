@@ -201,9 +201,9 @@ function selectAndGetItem() {
           items => {
             if (items[0])
             console.log('items[0]',items[0]);
-            deliveryClient.item(items[0].codename)
-              .toObservable()
-              .subscribe(response => console.log("item".response.item));
+            // deliveryClient.item(items[0].codename)
+            //   .toObservable()
+            //   .subscribe(response => console.log("item".response.item));
               var contentType = items[0].type.codename;
               var url = '';
 

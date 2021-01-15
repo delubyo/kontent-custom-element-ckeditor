@@ -200,13 +200,10 @@ function selectAndGetItem() {
         CustomElement.getItemDetails(results.map(e => e.id)).then(
           items => {
             if (items[0])
-            console.log('loaded');
             console.log('items[0]',items[0]);
-            console.log('Kc', Kc);
-            console.log('deliveryClient', deliveryClient);
-            // deliveryClient.item(items[0].codename)
-            //   .toObservable()
-            //   .subscribe(response => console.log("item".response.item));
+            deliveryClient.item(items[0].codename)
+              .toObservable()
+              .subscribe(response => console.log("item".response.item));
               var contentType = items[0].type.codename;
               var url = '';
 

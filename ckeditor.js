@@ -1,6 +1,6 @@
 CKEDITOR.disableAutoInline = true;
 AUTOSAVE_INTERVAL = 15000;
-const KontentDelivery = require('@kentico/kontent-delivery');
+
 let item_url_macro = "domain.com/{codename}";
 let projectId;
 

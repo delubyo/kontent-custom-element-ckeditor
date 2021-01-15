@@ -1,6 +1,8 @@
 CKEDITOR.disableAutoInline = true;
 AUTOSAVE_INTERVAL = 15000;
+const KontentDelivery = require('@kentico/kontent-delivery');
 let item_url_macro = "domain.com/{codename}";
+let projectId;
 
 CustomElement.init((element, context) => {
   initializeCKEditor(element);
@@ -189,7 +191,7 @@ function selectAndGetItem() {
         CustomElement.getItemDetails(results.map(e => e.id)).then(
           items => {
             if (items[0])
-            console.log('items[0]',items[0]);
+            console.log('items[0]',items[0], projectId);
               var contentType = items[0].type.codename;
               var url = '';
 

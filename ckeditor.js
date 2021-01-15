@@ -200,6 +200,7 @@ function selectAndGetItem() {
         CustomElement.getItemDetails(results.map(e => e.id)).then(
           items => {
             if (items[0])
+            console.log('loaded');
             console.log('items[0]',items[0]);
             console.log('Kc', Kc);
             console.log('deliveryClient', deliveryClient);

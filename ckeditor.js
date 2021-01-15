@@ -143,6 +143,8 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
 
     // resizes editor to initial height
     updateElementHeight();
+
+    console.log('window', window['kontentDelivery']);
   });
 
   /* on editor blur */

@@ -200,11 +200,10 @@ function selectAndGetItem() {
         CustomElement.getItemDetails(results.map(e => e.id)).then(
           items => {
             if (items[0])
-            console.log('items[0]',items[0]);
-            deliveryClient.item(items[0].codename)
-              .toObservable()
-              .subscribe(response =>  { 
-                console.log("API", deliveryClient, "item from API", response.item)
+              console.log('items[0]',items[0]);
+              deliveryClient.item(items[0].codename)
+                .toObservable()
+                .subscribe(response => console.log("API", deliveryClient, "item from API", response.item));
                 var contentType = items[0].type.codename;
                 var url = response.item.url.value;
 
@@ -222,9 +221,10 @@ function selectAndGetItem() {
                     url = 'pages/'+ url;
                     break;
                 }
+                resolve(url);
+              resolve(
                 item_url_macro.replace("{codename}", url)
-              })
-              resolve(null);
+              );
             resolve(null);
           }
         );

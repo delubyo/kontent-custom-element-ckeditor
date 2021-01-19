@@ -203,7 +203,7 @@ function selectAndGetItem() {
             console.log('items[0]',items[0]);
             deliveryClient.item(items[0].codename)
               .toObservable()
-              .subscribe(response => console.log("item from delivery API".response.item));
+              .subscribe(response => console.log("API", deliveryClient, "item from API", response.item));
               var contentType = items[0].type.codename;
               var url = '';
 

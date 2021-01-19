@@ -201,7 +201,7 @@ function selectAndGetItem() {
           items => {
             if (items[0])
               console.log('items[0]',items[0]);
-              const url = await deliveryClient.item(items[0].codename)
+              const url = deliveryClient.item(items[0].codename)
                   .toObservable()
                   .subscribe(response => {console.log("API", deliveryClient, "item from API", response.item);
                   var contentType = items[0].type.codename;

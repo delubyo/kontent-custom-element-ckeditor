@@ -200,32 +200,32 @@ function selectAndGetItem() {
         CustomElement.getItemDetails(results.map(e => e.id)).then(
           items => {
             if (items[0])
-              console.log('items[0]',items[0]);
-              const url = deliveryClient.item(items[0].codename)
-                  .toObservable()
-                  .subscribe(response => {console.log("API", deliveryClient, "item from API", response.item);
-                  var contentType = items[0].type.codename;
-                  var url = response.item.url.value;
+            console.log('items[0]',items[0]);
+            deliveryClient.item(items[0].codename)
+              .toObservable()
+              .subscribe(response => console.log("item from delivery API", deliveryClient, "item from API", response.item));
+              var contentType = items[0].type.codename;
+              var url = '';
 
-                  switch(contentType) {
-                    case 'ncoa_article_content':
-                        url = 'article/'+ url;
-                        break;
+              switch(contentType) {
+                case 'ncoa_article_content':
+                    url = 'article/'+ items[0].codename;
+                    break;
 
-                    case 'standard_page':
-                    case 'standard_page__special':
-                      url = 'page/'+ url;
-                      break;
+                case 'standard_page':
+                case 'standard_page__special':
+                  url = 'page/'+ items[0].codename;
+                  break;
 
-                    case 'awa_benefits_tool_template___standard_page':
-                      url = 'pages/'+ url;
-                      break;
-                  }
-                  resolve(url);
-                })
+                case 'awa_benefits_tool_template___standard_page':
+                  url = 'pages/'+ items[0].codename;
+                  break;
+
+                default:
+                  url = items[0].codename;
+              }
               resolve(
-                console.log('ulr object', url)
-                //item_url_macro.replace("{codename}", url)
+                item_url_macro.replace("{codename}", url)
               );
             resolve(null);
           }

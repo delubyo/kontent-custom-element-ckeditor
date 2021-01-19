@@ -234,31 +234,6 @@ function selectAndGetItem() {
   });
 }
 
-function getUrl() {
-  const promise = new Promise(function(resolve, reject) {
-    deliveryClient.item(items[0].codename)
-    .toObservable()
-    .subscribe(response => console.log("API", deliveryClient, "item from API", response.item));
-    var contentType = items[0].type.codename;
-    var url = response.item.url.value;
-
-    switch(contentType) {
-      case 'ncoa_article_content':
-          url = 'article/'+ url;
-          break;
-
-      case 'standard_page':
-      case 'standard_page__special':
-        url = 'page/'+ url;
-        break;
-
-      case 'awa_benefits_tool_template___standard_page':
-        url = 'pages/'+ url;
-        break;
-    }
-    resolve(url);
-}
-
 /* Resizes custom element iframe based on document height. Won't pass MAX_HEIGHT. */
 function updateElementHeight() {
   const height = Math.max(

@@ -224,7 +224,8 @@ function selectAndGetItem() {
                   resolve(url);
                 })
               resolve(
-                item_url_macro.replace("{codename}", url)
+                console.log(url)
+                //item_url_macro.replace("{codename}", url)
               );
             resolve(null);
           }

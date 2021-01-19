@@ -222,11 +222,9 @@ function selectAndGetItem() {
                     url = 'pages/'+ url;
                     break;
                 }
-                return url;
-              })
-              resolve(
                 item_url_macro.replace("{codename}", url)
-              );
+              })
+              resolve(null);
             resolve(null);
           }
         );

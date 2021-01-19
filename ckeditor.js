@@ -205,24 +205,21 @@ function selectAndGetItem() {
               .toObservable()
               .subscribe(response => console.log("API", deliveryClient, "item from API", response.item));
               var contentType = items[0].type.codename;
-              var url = '';
+              var url = response.item.url.value;
 
               switch(contentType) {
                 case 'ncoa_article_content':
-                    url = 'article/'+ items[0].codename;
+                    url = 'article/'+ url;
                     break;
 
                 case 'standard_page':
                 case 'standard_page__special':
-                  url = 'page/'+ items[0].codename;
+                  url = 'page/'+ url;
                   break;
 
                 case 'awa_benefits_tool_template___standard_page':
-                  url = 'pages/'+ items[0].codename;
+                  url = 'pages/'+ url;
                   break;
-
-                default:
-                  url = items[0].codename;
               }
               resolve(
                 item_url_macro.replace("{codename}", url)

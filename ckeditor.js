@@ -200,9 +200,9 @@ function selectAndGetItem() {
       if (results.length > 0) {
         CustomElement.getItemDetails(results.map(e => e.id)).then(async (items) => {
             if (items[0]) {
+              console.log(deliveryClient.item);
               await deliveryClient.item(items[0].codename)
-                .toObservable()
-                .toPromise((response) => {
+                .then((response) => {
                   console.log(response.item);
                 });
                 // .subscribe(response => console.log("item from delivery API", deliveryClient, "item from API", response.item));

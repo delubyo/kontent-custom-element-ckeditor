@@ -93,8 +93,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
   if (element.config) {
     let toolbar = element.config.toolbar;
     if (toolbar) config.toolbarGroups = toolbar;
-    console.log('element.config.itemUrlMacro', element.config.itemUrlMacro);
-    item_url_macro = element.config.itemUrlMacro; // load url macro for item hyperlinks
+    item_url_macro = "{codename}"; // load url macro for item hyperlinks
   }
 
   // config.toolbarGroups = config.toolbarGroups || [];
@@ -208,7 +207,6 @@ function selectAndGetItem() {
                   switch (items[0].type.codename) {
                     case 'ncoa_article_content': {
                       url = `article/${response.item.url.value}`;
-                      console.log(url);
                       break;
                     }
                     case 'standard_page': {

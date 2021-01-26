@@ -203,7 +203,17 @@ function selectAndGetItem() {
               deliveryClient.item(items[0].codename)
                 .toPromise()
                 .then((response) => {
-                  console.log(response.item.url.value);
+                  let url;
+
+                  switch (items[0].type.codename) {
+                    case 'ncoa_article_content': {
+                      url = `article/${response.item.url.value}`;
+                      break;
+                    }
+                  }
+
+                  resolve(item_url_macro("{codename}", url));
+                  // console.log(response.item.url.value);
                 });
                 // .subscribe(response => console.log("item from delivery API", deliveryClient, "item from API", response.item));
                 // var contentType = items[0].type.codename;

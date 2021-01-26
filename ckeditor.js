@@ -1,7 +1,7 @@
 CKEDITOR.disableAutoInline = true;
 AUTOSAVE_INTERVAL = 15000;
 
-let item_url_macro = "domain.com/{codename}";
+let item_url_macro = "{codename}";
 let projectId;
 var Kc;
 var deliveryClient;
@@ -196,7 +196,6 @@ function selectAndGetAsset() {
 function selectAndGetItem() {
   return new Promise((resolve, reject) => {
     CustomElement.selectItems({ allowMultiple: false }).then((results) => {
-      console.log('update tag: 1');
       if (results.length > 0) {
         CustomElement.getItemDetails(results.map(e => e.id)).then(async (items) => {
             if (items[0]) {

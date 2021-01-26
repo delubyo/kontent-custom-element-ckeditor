@@ -224,6 +224,14 @@ function selectAndGetItem() {
                       url = `page/${response.item.url.value}`;
                       break;
                     }
+                    case 'taxonomy_custom_content': {
+                      url = response.item.category_page_url.value;
+                      break;
+                    }
+                    case 'template___audience_page': {
+                      url = response.item.audience_page_url.value;
+                      break;
+                    }
                   }
 
                   resolve(item_url_macro.replace("{codename}", url));

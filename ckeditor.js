@@ -202,12 +202,30 @@ function selectAndGetItem() {
             if (items[0]) {
               deliveryClient.item(items[0].codename)
                 .toPromise()
-                .then((response) => {
+                .then(async (response) => {
                   let url;
 
                   switch (items[0].type.codename) {
                     case 'ncoa_article_content': {
                       url = `article/${response.item.url.value}`;
+                      break;
+                    }
+                    case 'standard_page': {
+                      // has parent page
+                      if (response.item.parent_page.value.length > 0) {
+                        const parentPageCodename = response.item.parent_page.value[0];
+                        const parentPageURLSlug = await deliveryClient.item(parentPageCodename).toPromise().then((parentPageRaw) => parentPageRaw.item.url.value);
+                        url = `page/${parentPageURLSlug}/${response.item.url.value}`;
+                      } else {
+                        url = `page/${response.item.url.value}`;
+                      }
+                      break;
+                    }
+                    case 'standard_page__special': {
+                      break;
+                    }
+                    case 'awa_benefits_tool_template___standard_page': {
+                      // tools
                       break;
                     }
                   }

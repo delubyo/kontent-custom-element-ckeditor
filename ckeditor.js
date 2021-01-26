@@ -195,39 +195,45 @@ function selectAndGetAsset() {
 /* Displays content item selector and returns url of the selected content item */
 function selectAndGetItem() {
   return new Promise((resolve, reject) => {
-    CustomElement.selectItems({ allowMultiple: false }).then(results => {
+    CustomElement.selectItems({ allowMultiple: false }).then((results) => {
+      console.log('version tag: 1');
       if (results.length > 0) {
-        CustomElement.getItemDetails(results.map(e => e.id)).then(
-          items => {
-            if (items[0])
-            console.log('items[0]',items[0]);
-            deliveryClient.item(items[0].codename)
-              .toObservable()
-              .subscribe(response => console.log("item from delivery API", deliveryClient, "item from API", response.item));
-              var contentType = items[0].type.codename;
-              var url = '';
-
-              switch(contentType) {
-                case 'ncoa_article_content':
-                    url = 'article/'+ response.item.url.value;
-                    break;
-
-                case 'standard_page':
-                case 'standard_page__special':
-                  url = 'page/'+ items[0].codename;
-                  break;
-
-                case 'awa_benefits_tool_template___standard_page':
-                  url = 'pages/'+ items[0].codename;
-                  break;
-
-                default:
-                  url = items[0].codename;
-              }
-              resolve(
-                item_url_macro.replace("{codename}", url)
-              );
-            resolve(null);
+        CustomElement.getItemDetails(results.map(e => e.id)).then(async (items) => {
+            if (items[0]) {
+              await deliveryClient.item(items[0].codename)
+                .toObservable()
+                .toPromise((response) => {
+                  console.log(response.item);
+                });
+                // .subscribe(response => console.log("item from delivery API", deliveryClient, "item from API", response.item));
+                // var contentType = items[0].type.codename;
+                // var url = '';
+  
+                // console.log(response.item.e.url.value);
+  
+                // switch(contentType) {
+                //   case 'ncoa_article_content':
+                //       url = 'article/'+ response.item.url.value;
+                //       break;
+  
+                //   case 'standard_page':
+                //   case 'standard_page__special':
+                //     url = 'page/'+ items[0].codename;
+                //     break;
+  
+                //   case 'awa_benefits_tool_template___standard_page':
+                //     url = 'pages/'+ items[0].codename;
+                //     break;
+  
+                //   default:
+                //     url = items[0].codename;
+                // }
+                // resolve(
+                //   item_url_macro.replace("{codename}", url)
+                // );
+            } else {
+              resolve(null);
+            }
           }
         );
       }

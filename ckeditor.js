@@ -196,14 +196,14 @@ function selectAndGetAsset() {
 function selectAndGetItem() {
   return new Promise((resolve, reject) => {
     CustomElement.selectItems({ allowMultiple: false }).then((results) => {
-      console.log('version tag: 3');
+      console.log('version tag: 4');
       if (results.length > 0) {
         CustomElement.getItemDetails(results.map(e => e.id)).then(async (items) => {
             if (items[0]) {
               deliveryClient.item(items[0].codename)
                 .toPromise()
                 .then((response) => {
-                  console.log(response.item.e.url.value);
+                  console.log(response.item.url.value);
                 });
                 // .subscribe(response => console.log("item from delivery API", deliveryClient, "item from API", response.item));
                 // var contentType = items[0].type.codename;

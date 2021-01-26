@@ -196,12 +196,12 @@ function selectAndGetAsset() {
 function selectAndGetItem() {
   return new Promise((resolve, reject) => {
     CustomElement.selectItems({ allowMultiple: false }).then((results) => {
-      console.log('version tag: 1');
+      console.log('version tag: 2');
       if (results.length > 0) {
         CustomElement.getItemDetails(results.map(e => e.id)).then(async (items) => {
             if (items[0]) {
-              console.log(deliveryClient.item);
-              await deliveryClient.item(items[0].codename)
+              deliveryClient.item(items[0].codename)
+                .toPromise()
                 .then((response) => {
                   console.log(response.item);
                 });

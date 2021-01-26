@@ -196,6 +196,7 @@ function selectAndGetAsset() {
 function selectAndGetItem() {
   return new Promise((resolve, reject) => {
     CustomElement.selectItems({ allowMultiple: false }).then((results) => {
+      console.log('update tag: 1');
       if (results.length > 0) {
         CustomElement.getItemDetails(results.map(e => e.id)).then(async (items) => {
             if (items[0]) {
@@ -207,6 +208,7 @@ function selectAndGetItem() {
                   switch (items[0].type.codename) {
                     case 'ncoa_article_content': {
                       url = `article/${response.item.url.value}`;
+                      console.log(url);
                       break;
                     }
                     case 'standard_page': {

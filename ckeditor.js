@@ -196,7 +196,7 @@ function selectAndGetAsset() {
 function selectAndGetItem() {
   return new Promise((resolve, reject) => {
     CustomElement.selectItems({ allowMultiple: false }).then((results) => {
-      console.log('version tag: 7');
+      console.log('version tag: 8');
       if (results.length > 0) {
         CustomElement.getItemDetails(results.map(e => e.id)).then(async (items) => {
             if (items[0]) {
@@ -212,8 +212,9 @@ function selectAndGetItem() {
                     }
                     case 'standard_page': {
                       // has parent page
+                      console.log('standard page codename', items[0].codename);
                       if (response.item.parent_page.value.length > 0) {
-                        console.log('response.item', response.item);
+                        console.log('response', response);
                         const parentPageCodename = response.item.parent_page.value[0];
                         console.log('codename', parentPageCodename);
                         const parentPageURLSlug = await deliveryClient.item(parentPageCodename).toPromise().then((parentPageRaw) => {

@@ -718,6 +718,9 @@
 					onclickList.push(featureList.join(','), '\'); return false;');
 					set['data-cke-pa-onclick'] = onclickList.join('');
 				}
+				else if ( data.type== 'anchor' ) {
+					delete set.target;
+				}
 				else if (data.target.type != 'notSet' && data.target.name) {
 					set.target = data.target.name;
 				}

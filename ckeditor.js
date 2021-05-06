@@ -25,7 +25,7 @@ CKEDITOR.addStylesSet('customstyleset', [
     element: 'p',
   },
   {
-    name: 'Footnote',
+    name: 'Footnote Test',
     element: 'small',
   },
 ]);

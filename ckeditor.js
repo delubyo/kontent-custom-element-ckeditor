@@ -25,7 +25,7 @@ CKEDITOR.addStylesSet('customstyleset', [
     element: 'p',
   },
   {
-    name: 'Footnote Test',
+    name: 'Footnote',
     element: 'small',
   },
 ]);
@@ -91,7 +91,7 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
 		{ name: 'about', groups: [ 'about' ] }
   ];
 
-  config.removeButtons = 'Save,NewPage,ExportPdf,Preview,Print,Templates,Cut,Copy,Paste,PasteText,PasteFromWord,Undo,Redo,Find,Replace,SelectAll,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Strike,Subscript,CopyFormatting,Outdent,Indent,CreateDiv,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,BidiLtr,BidiRtl,Language,Flash,HorizontalRule,Smiley,SpecialChar,PageBreak,Iframe,Font,FontSize,TextColor,BGColor,Maximize,ShowBlocks,About,Format';
+  config.removeButtons = 'Save,NewPage,ExportPdf,Preview,Print,Templates,Cut,Copy,Paste,PasteText,PasteFromWord,Undo,Redo,Find,Replace,SelectAll,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Strike,Subscript,CopyFormatting,Outdent,CreateDiv,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,BidiLtr,BidiRtl,Language,Flash,HorizontalRule,Smiley,SpecialChar,PageBreak,Iframe,Font,FontSize,TextColor,BGColor,Maximize,ShowBlocks,About,Format';
 
   /* load toolbar config from element settings if present */
   if (element.config) {
@@ -131,8 +131,6 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
 
   /* what to do on autogrow */
   ckeditor.on("resize", updateElementHeight);
-
-  console.log('debug', 'this is running');
 
   /* on editor load */
   ckeditor.on("instanceReady", function () {

@@ -132,6 +132,8 @@ function initializeCKEditor(element, basePath = '/kontent-custom-element-ckedito
   /* what to do on autogrow */
   ckeditor.on("resize", updateElementHeight);
 
+  console.log('debug', 'this is running');
+
   /* on editor load */
   ckeditor.on("instanceReady", function () {
     // reposition so there are no unnecessary toolbars
